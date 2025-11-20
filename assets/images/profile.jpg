@@ -1,0 +1,9 @@
+your-portfolio-folder/
+├── index.html
+├── style.css
+└── assets/
+    └── images/
+        ├── profile.jpg
+        ├── project1.jpg
+        ├── project2.jpg
+        └── project3.jpg
