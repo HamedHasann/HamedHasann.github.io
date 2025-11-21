@@ -1,218 +1,283 @@
-// script.js (improved)
+// script.js (module) - advanced mode with Three.js scene + interactions
+import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
 
-// DOM Loaded
 document.addEventListener('DOMContentLoaded', () => {
-  initAll();
+  initUI();
+  initThreeScene();
+  initForm();
+  initNav();
+  document.getElementById('year').textContent = new Date().getFullYear();
 });
 
-function initAll() {
-  initLoading();
-  initMobileMenu();
-  initNavActiveOnScroll();
-  initSmoothScroll();
-  initTyping();
-  initCounters();
-  initSkillProgress();
-  initForm();
-  initParticles();
-  initThemeToggle();
-}
-
-/* Loading */
-function initLoading(){
-  const loading = document.querySelector('.loading-screen');
-  if(!loading) return;
-  setTimeout(()=> {
-    loading.classList.add('loaded');
-    setTimeout(()=> loading.remove(), 600);
-  }, 1000);
-}
-
-/* Mobile menu */
-function initMobileMenu(){
-  const openBtn = document.getElementById('mobileBtn');
-  const closeBtn = document.getElementById('mobileClose');
-  const mobile = document.getElementById('mobileMenu');
-  if(!openBtn || !mobile) return;
-
-  openBtn.addEventListener('click', ()=> {
-    mobile.classList.add('active');
-    document.body.style.overflow = 'hidden';
+// ---------- UI helpers ----------
+function initUI(){
+  // theme toggle
+  const themeBtn = document.getElementById('themeToggle');
+  themeBtn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('light');
+    themeBtn.querySelector('i').classList.toggle('fa-sun');
+    themeBtn.querySelector('i').classList.toggle('fa-moon');
   });
-  if(closeBtn) closeBtn.addEventListener('click', closeMobile);
-  document.querySelectorAll('.mobile-nav-link').forEach(a => a.addEventListener('click', closeMobile));
-  function closeMobile(){ mobile.classList.remove('active'); document.body.style.overflow = ''; }
-}
 
-/* Nav highlight on scroll */
-function initNavActiveOnScroll(){
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-  if(!sections.length) return;
+  // mobile menu
+  const mobileBtn = document.getElementById('mobileBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMobile = document.getElementById('closeMobile');
+  mobileBtn?.addEventListener('click', () => mobileMenu.style.display = 'block');
+  closeMobile?.addEventListener('click', () => mobileMenu.style.display = 'none');
 
-  function onScroll(){
-    const fromTop = window.scrollY + 110; // offset for header
-    let current = '';
-    sections.forEach(sec => {
-      const top = sec.offsetTop;
-      if(fromTop >= top) current = sec.id;
-    });
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-    });
-    // mobile links
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-    });
-  }
-
-  window.addEventListener('scroll', throttle(onScroll, 120));
-  onScroll();
-}
-
-/* Smooth scroll */
-function initSmoothScroll(){
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const href = a.getAttribute('href');
-      if(!href || href === '#') return;
-      const target = document.querySelector(href);
-      if(target){
-        e.preventDefault();
-        target.scrollIntoView({behavior:'smooth',block:'start'});
-        // close mobile if open
-        document.getElementById('mobileMenu')?.classList.remove('active');
-      }
-    });
+  // copy email
+  const copyEmail = document.getElementById('copyEmail');
+  copyEmail?.addEventListener('click', async () => {
+    await navigator.clipboard?.writeText('hamed2002273@gmail.com');
+    showNotification('Email copied to clipboard', 'success');
   });
 }
 
-/* Typing effect */
-function initTyping(){
-  const el = document.querySelector('.typed-text');
-  if(!el) return;
-  const words = ['embedded systems','IoT solutions','circuit design','electronic innovation'];
-  let w = 0, i = 0, deleting=false;
-  function tick(){
-    const word = words[w];
-    el.textContent = deleting ? word.substring(0,i--) : word.substring(0,++i);
-    if(!deleting && i === word.length){ deleting = true; setTimeout(tick, 900); return; }
-    if(deleting && i===0){ deleting=false; w=(w+1)%words.length; setTimeout(tick, 400); return; }
-    setTimeout(tick, deleting?50:95);
-  }
-  setTimeout(tick, 800);
+// small notification
+function showNotification(text, type='info'){
+  const notif = document.createElement('div');
+  notif.className = `notify notify-${type}`;
+  notif.textContent = text;
+  Object.assign(notif.style, {
+    position:'fixed',right:'20px',top:'100px',padding:'12px 18px',borderRadius:'10px',
+    background: type==='success' ? '#10b981' : '#2563eb', color:'#fff',zIndex:10000
+  });
+  document.body.appendChild(notif);
+  setTimeout(()=> notif.remove(), 3500);
 }
 
-/* Counters */
-function initCounters(){
-  const counters = document.querySelectorAll('.stat-number');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        runCounter(entry.target);
-        obs.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.5});
-  counters.forEach(c => obs.observe(c));
-}
-
-function runCounter(el){
-  const target = parseInt(el.getAttribute('data-count')||'0',10);
-  if(!target) return;
-  let current = 0;
-  const step = Math.max(1, Math.round(target/120));
-  const timer = setInterval(()=> {
-    current += step;
-    if(current >= target){ el.textContent = String(target); clearInterval(timer); }
-    else el.textContent = String(current);
-  }, 12);
-}
-
-/* Skill progress bars */
-function initSkillProgress(){
-  const elems = document.querySelectorAll('.skill-progress, .tech-progress');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        const w = entry.target.getAttribute('data-width') || '0';
-        entry.target.style.width = w + '%';
-        obs.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.4});
-  elems.forEach(e => obs.observe(e));
-}
-
-/* Form handling */
+// ---------- Form handling ----------
 function initForm(){
-  const form = document.querySelector('.message-form');
+  const form = document.getElementById('contactForm');
   if(!form) return;
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const fd = new FormData(form);
-    const name = fd.get('name')?.toString().trim();
-    const email = fd.get('email')?.toString().trim();
-    const message = fd.get('message')?.toString().trim();
-    if(!name || !email || !message) return notify('Please fill all fields', 'error');
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return notify('Please enter valid email', 'error');
+    const data = new FormData(form);
+    const name = data.get('name')?.toString().trim();
+    const email = data.get('email')?.toString().trim();
+    const msg = data.get('message')?.toString().trim();
+    if(!name || !email || !msg){ showNotification('Please fill all fields','info'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showNotification('Invalid email','info'); return; }
+
+    // simulate send
     const btn = form.querySelector('button[type="submit"]');
     const old = btn.innerHTML;
-    btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
     setTimeout(()=> {
-      notify('Message sent. I will contact you soon','success');
-      form.reset(); btn.innerHTML = old; btn.disabled = false;
-    }, 1400);
+      showNotification('Message sent — thank you!', 'success');
+      form.reset();
+      btn.innerHTML = old;
+      btn.disabled = false;
+    }, 1200);
   });
 }
 
-/* Notification helper */
-function notify(msg, type='info'){
-  const existing = document.querySelector('.notification'); if(existing) existing.remove();
-  const n = document.createElement('div');
-  n.className = `notification notification-${type}`;
-  n.innerHTML = `<div class="notification-content"><i class="fas fa-${type==='success'?'check-circle':type==='error'?'exclamation-circle':'info-circle'}"></i><span>${msg}</span></div>`;
-  Object.assign(n.style, {position:'fixed',top:'90px',right:'20px',background: type==='success'?'#10b981':type==='error'?'#ef4444':'#3b82f6',color:'#fff',padding:'12px 14px',borderRadius:'10px',zIndex:10000,boxShadow:'0 10px 30px rgba(0,0,0,.2)'});
-  document.body.appendChild(n);
-  setTimeout(()=> { n.style.transform='translateX(400px)'; setTimeout(()=> n.remove(),300); }, 4200);
-}
+// ---------- Navigation & active link ----------
+function initNav(){
+  const links = document.querySelectorAll('.nav-link');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  const sections = Array.from(document.querySelectorAll('section, header'));
 
-/* Particles (lightweight) */
-function initParticles(){
-  const container = document.getElementById('particles');
-  if(!container) return;
-  const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
-  canvas.style.position='absolute'; canvas.style.inset='0'; canvas.style.pointerEvents='none';
-  container.appendChild(canvas);
-  let w=container.clientWidth, h=container.clientHeight; canvas.width=w; canvas.height=h;
-  window.addEventListener('resize', ()=> { w=container.clientWidth; h=container.clientHeight; canvas.width=w; canvas.height=h; });
-
-  const particles = [];
-  const count = Math.max(20, Math.floor(w*h/40000));
-  for(let i=0;i<count;i++) particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.6+0.5,dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5,alpha:Math.random()*0.4+0.1});
-  function loop(){
-    ctx.clearRect(0,0,w,h);
-    particles.forEach(p=>{
-      p.x += p.dx; p.y += p.dy;
-      if(p.x<0) p.x=w; if(p.x>w) p.x=0; if(p.y<0) p.y=h; if(p.y>h) p.y=0;
-      ctx.beginPath(); ctx.fillStyle = `rgba(99,102,241,${p.alpha})`; ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-    });
-    requestAnimationFrame(loop);
+  function onScroll(){
+    const y = window.scrollY + 200;
+    for(let sec of sections){
+      if(sec.offsetTop <= y && (sec.offsetTop + sec.offsetHeight) > y){
+        const id = sec.id || 'home';
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+        mobileLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href')===`#${id}`));
+      }
+    }
   }
-  loop();
-}
-
-/* Theme toggle (basic) */
-function initThemeToggle(){
-  const btn = document.getElementById('themeToggle'); if(!btn) return;
-  btn.addEventListener('click', ()=> {
-    const dark = document.documentElement.classList.toggle('light-mode');
-    btn.innerHTML = dark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+  onScroll();
+  window.addEventListener('scroll', onScroll);
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+      document.getElementById('mobileMenu').style.display = 'none';
+    });
   });
 }
 
-/* Utility: throttle */
-function throttle(fn, limit){
-  let last=false;
-  return function(...args){ if(!last){ fn.apply(this,args); last=true; setTimeout(()=> last=false, limit); } }
+// ---------- Three.js scene ----------
+function initThreeScene(){
+  const container = document.getElementById('three-container');
+  if(!container) return;
+
+  // sizes
+  const sizes = { width: container.clientWidth, height: container.clientHeight };
+
+  // renderer
+  const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(sizes.width, sizes.height);
+  container.appendChild(renderer.domElement);
+
+  // scene & camera
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x000007, 0.0025);
+  const camera = new THREE.PerspectiveCamera(40, sizes.width / sizes.height, 0.1, 2000);
+  camera.position.set(0, 80, 220);
+  scene.add(camera);
+
+  // lights
+  const hemi = new THREE.HemisphereLight(0xbfefff, 0x080820, 0.8);
+  scene.add(hemi);
+  const spot = new THREE.PointLight(0x7c5cff, 1.2, 1000, 2);
+  spot.position.set(200, 200, 200);
+  scene.add(spot);
+  const accent = new THREE.PointLight(0x06d6d6, 0.8, 500);
+  accent.position.set(-200, -80, 100);
+  scene.add(accent);
+
+  // --- PCB base ---
+  const pcbGeo = new THREE.BoxGeometry(220, 4, 160);
+  const pcbMat = new THREE.MeshStandardMaterial({
+    color: 0x051018,
+    metalness: 0.2,
+    roughness: 0.6,
+    emissive: 0x020b12,
+  });
+  const pcb = new THREE.Mesh(pcbGeo, pcbMat);
+  pcb.position.y = -6;
+  pcb.receiveShadow = true;
+  scene.add(pcb);
+
+  // --- traces (thin lines simulated with extruded planes) ---
+  const traceMat = new THREE.MeshBasicMaterial({ color: 0x6f7cff, transparent:true, opacity:0.85 });
+  const traces = new THREE.Group();
+  const tracePaths = [
+    { w:120, h:6, x:-10, z:30, r:0.2 },
+    { w:200, h:6, x:0, z:-20, r:-0.1 },
+    { w:60, h:6, x:60, z:0, r:0.5 },
+  ];
+  tracePaths.forEach(t => {
+    const g = new THREE.BoxGeometry(t.w, 1.5, t.h);
+    const m = new THREE.Mesh(g, traceMat);
+    m.position.set(t.x, -3.5, t.z);
+    m.rotation.y = t.r;
+    traces.add(m);
+  });
+  scene.add(traces);
+
+  // --- chip (center) ---
+  const chipGeo = new THREE.BoxGeometry(60, 18, 60);
+  const chipMat = new THREE.MeshStandardMaterial({
+    color: 0x0c1020,
+    metalness: 0.6,
+    roughness: 0.2,
+    emissive: 0x1b1f40,
+  });
+  const chip = new THREE.Mesh(chipGeo, chipMat);
+  chip.position.set(0, 6, 0);
+  scene.add(chip);
+
+  // chip glow (emissive plane)
+  const glowGeo = new THREE.PlaneGeometry(260, 180);
+  const glowMat = new THREE.MeshBasicMaterial({color:0x7c5cff, transparent:true, opacity:0.06, side: THREE.DoubleSide});
+  const glow = new THREE.Mesh(glowGeo, glowMat);
+  glow.rotation.x = -Math.PI / 2;
+  glow.position.y = -4;
+  scene.add(glow);
+
+  // small components (caps, resistors)
+  const comps = new THREE.Group();
+  for(let i=0;i<8;i++){
+    const g = new THREE.BoxGeometry(12, 8, 6);
+    const m = new THREE.Mesh(g, new THREE.MeshStandardMaterial({color:0x233b4a, metalness:0.2, roughness:0.3}));
+    const angle = Math.PI * 2 * (i/8);
+    m.position.set(Math.cos(angle)*80, 0.5, Math.sin(angle)*50);
+    m.rotation.y = angle;
+    comps.add(m);
+  }
+  scene.add(comps);
+
+  // orbiting micro-chip (glowing)
+  const microGeo = new THREE.BoxGeometry(18, 6, 18);
+  const microMat = new THREE.MeshStandardMaterial({color:0x1e2140, emissive:0x7c5cff, emissiveIntensity:0.6});
+  const micro = new THREE.Mesh(microGeo, microMat);
+  scene.add(micro);
+
+  // post-process-like shimmer: a transparent plane that rotates slowly
+  const shimmerGeo = new THREE.PlaneGeometry(260, 160);
+  const shimmerMat = new THREE.MeshBasicMaterial({color:0xffffff, transparent:true, opacity:0.015});
+  const shimmer = new THREE.Mesh(shimmerGeo, shimmerMat);
+  shimmer.rotation.x = -Math.PI / 2;
+  shimmer.position.y = -3.9;
+  scene.add(shimmer);
+
+  // controls (gentle)
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.enableRotate = true;
+  controls.enablePan = false;
+  controls.enableZoom = false;
+  controls.autoRotate = false;
+  controls.minPolarAngle = Math.PI/6;
+  controls.maxPolarAngle = Math.PI/2;
+
+  // resize
+  function onResize(){
+    sizes.width = container.clientWidth;
+    sizes.height = container.clientHeight;
+    camera.aspect = sizes.width / sizes.height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(sizes.width, sizes.height);
+  }
+  window.addEventListener('resize', onResize);
+
+  // mouse parallax
+  const mouse = {x:0,y:0};
+  container.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    mouse.x = (e.clientX - rect.left) / rect.width * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / rect.height * 2 - 1);
+  });
+
+  // animation loop
+  let t = 0;
+  const animate = () => {
+    requestAnimationFrame(animate);
+    t += 0.005;
+
+    // gentle chip rotation
+    chip.rotation.y += 0.0025;
+    chip.rotation.x = Math.sin(t * 0.6) * 0.02;
+
+    // micro orbit
+    micro.position.x = Math.cos(t * 1.6) * 90;
+    micro.position.z = Math.sin(t * 1.6) * 55;
+    micro.position.y = 8 + Math.sin(t * 2.3) * 3;
+    micro.rotation.y += 0.02;
+
+    // slightly rotate components for life
+    comps.rotation.y = Math.sin(t*0.2) * 0.02;
+
+    // shimmer rotates
+    shimmer.rotation.z += 0.0006;
+
+    // parallax camera based on mouse
+    camera.position.x += (mouse.x * 20 - camera.position.x) * 0.02;
+    camera.position.y += (mouse.y * 20 + 40 - camera.position.y) * 0.02;
+    camera.lookAt(0, 0, 0);
+
+    controls.update();
+    renderer.render(scene, camera);
+  };
+
+  // hide loading after first frame
+  renderer.domElement.addEventListener('mousemove', function onFirst(){
+    const load = document.getElementById('loading');
+    if(load){ load.style.display='none'; }
+    renderer.domElement.removeEventListener('mousemove', onFirst);
+  });
+
+  // initial render and start
+  animate();
 }
+
+// End of script.js
