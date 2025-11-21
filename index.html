@@ -1,171 +1,722 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Md Hamed Hasan — Portfolio</title>
-
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-    <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Hamed Hasan | Electronics Engineer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<!-- HEADER -->
-<header class="header">
-    <div class="container nav-container">
-        <div class="logo">Hamed<span>Hasan</span></div>
-
-        <nav class="nav">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </nav>
-
-        <button class="mobile-btn"><i class="fas fa-bars"></i></button>
-    </div>
-</header>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu">
-    <button class="close-mobile"><i class="fas fa-times"></i></button>
-    <a href="#home" class="m-link">Home</a>
-    <a href="#about" class="m-link">About</a>
-    <a href="#skills" class="m-link">Skills</a>
-    <a href="#projects" class="m-link">Projects</a>
-    <a href="#contact" class="m-link">Contact</a>
-</div>
-
-<!-- HERO -->
-<section id="home" class="hero">
-    <div class="container hero-grid">
-        <div class="hero-text">
-            <h1>Hello, I'm <span class="accent">Md Hamed Hasan</span></h1>
-            <p class="subtitle">
-                Electronics & Telecommunication Engineer specializing in embedded systems, IoT, and PCB design.
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn primary">View Projects</a>
-                <a href="#contact" class="btn outline">Contact Me</a>
-            </div>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
         </div>
+        <div class="grid-overlay"></div>
+    </div>
 
-        <div class="hero-image">
-            <img src="/mnt/data/profile.jpg" alt="Profile">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="circuit-loader">
+                <div class="circuit-line"></div>
+                <div class="circuit-node"></div>
+                <div class="circuit-node"></div>
+                <div class="circuit-node"></div>
+            </div>
+            <p class="loading-text">Initializing Systems</p>
         </div>
     </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-    <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Who I Am</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home" class="logo">
+                    <div class="logo-icon">
+                        <div class="logo-chip"></div>
+                    </div>
+                    <span class="logo-text">Hamed</span>
+                </a>
+            </div>
 
-        <div class="about-grid">
-            <p>
-                I'm an Electronics & Telecommunication Engineer passionate about building efficient embedded systems,
-                reliable PCB layouts, and IoT-based smart solutions. I focus on clean design—both in hardware and code.
-            </p>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active" data-text="Home">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-text="About">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span class="nav-text">About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link" data-text="Skills">
+                        <span class="nav-icon"><i class="fas fa-code"></i></span>
+                        <span class="nav-text">Skills</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link" data-text="Projects">
+                        <span class="nav-icon"><i class="fas fa-project-diagram"></i></span>
+                        <span class="nav-text">Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#education" class="nav-link" data-text="Education">
+                        <span class="nav-icon"><i class="fas fa-graduation-cap"></i></span>
+                        <span class="nav-text">Education</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-text="Contact">
+                        <span class="nav-icon"><i class="fas fa-envelope"></i></span>
+                        <span class="nav-text">Contact</span>
+                    </a>
+                </li>
+            </ul>
 
-            <div class="about-card">
-                <h3>Experience Stats</h3>
-                <ul>
-                    <li><strong>15+</strong> Completed Projects</li>
-                    <li><strong>3+</strong> Years of Experience</li>
-                    <li><strong>8+</strong> Technologies Used</li>
-                </ul>
+            <!-- Theme Toggle -->
+            <div class="theme-toggle">
+                <div class="toggle-btn">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu-btn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<!-- SKILLS -->
-<section id="skills" class="section dark">
-    <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">What I Work With</p>
-
-        <div class="skills-grid">
-
-            <div class="skill-box">
-                <h3>Hardware</h3>
-                <p>PCB Design — Schematic — Power Systems — Proteus — KiCad</p>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <div class="mobile-logo">
+                    <div class="logo-chip"></div>
+                    <span>Hamed</span>
+                </div>
+                <div class="mobile-close">
+                    <i class="fas fa-times"></i>
+                </div>
             </div>
-
-            <div class="skill-box">
-                <h3>Embedded</h3>
-                <p>C/C++ — Microcontrollers — ESP32 — Arduino — RTOS Basics</p>
-            </div>
-
-            <div class="skill-box">
-                <h3>Software</h3>
-                <p>Python — MATLAB — Git — Serial Comm — IoT Platforms</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="section">
-    <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Selected Work</p>
-
-        <div class="projects-grid">
-
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4" alt="">
-                <h3>Smart Power Supply</h3>
-                <p>Efficient 5V regulated supply with overcurrent protection.</p>
-                <span class="tag">PCB</span>
-                <span class="tag">Power</span>
-            </div>
-
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e" alt="">
-                <h3>Line Following Robot</h3>
-                <p>PID-based autonomous robot with IR sensors.</p>
-                <span class="tag">Robot</span>
-                <span class="tag">Arduino</span>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section dark">
-    <div class="container">
-        <h2 class="section-title">Contact Me</h2>
-
-        <div class="contact-grid">
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea rows="5" placeholder="Message" required></textarea>
-                <button class="btn primary" type="submit">Send Message</button>
-            </form>
-
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> Chittagong, Bangladesh</p>
-                <p><i class="fas fa-envelope"></i> hamed2002273@gmail.com</p>
-                <p><i class="fas fa-phone"></i> +880 — add number</p>
+            <div class="mobile-nav-links">
+                <a href="#home" class="mobile-nav-link active">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="#about" class="mobile-nav-link">
+                    <i class="fas fa-user"></i>
+                    About
+                </a>
+                <a href="#skills" class="mobile-nav-link">
+                    <i class="fas fa-code"></i>
+                    Skills
+                </a>
+                <a href="#projects" class="mobile-nav-link">
+                    <i class="fas fa-project-diagram"></i>
+                    Projects
+                </a>
+                <a href="#education" class="mobile-nav-link">
+                    <i class="fas fa-graduation-cap"></i>
+                    Education
+                </a>
+                <a href="#contact" class="mobile-nav-link">
+                    <i class="fas fa-envelope"></i>
+                    Contact
+                </a>
             </div>
         </div>
     </div>
-</section>
 
-<!-- FOOTER -->
-<footer class="footer">
-    <div class="container">
-        <p>© <span id="year"></span> Md Hamed Hasan — All Rights Reserved.</p>
-    </div>
-</footer>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+            <div class="particles-container" id="particles"></div>
+        </div>
 
+        <div class="container">
+            <div class="hero-content">
+                <!-- Animated Profile -->
+                <div class="hero-profile">
+                    <div class="profile-container">
+                        <div class="profile-orbital">
+                            <div class="orbit orbit-1"></div>
+                            <div class="orbit orbit-2"></div>
+                            <div class="orbit orbit-3"></div>
+                        </div>
+                        <div class="profile-frame">
+                            <div class="profile-glow"></div>
+                            <div class="profile-image-container">
+                                <img src="assets/images/profile.jpg" alt="Md Hamed Hasan" class="profile-image">
+                                <div class="profile-shine"></div>
+                            </div>
+                            <div class="profile-badge">
+                                <div class="badge-dot"></div>
+                                <span>Available for projects</span>
+                            </div>
+                        </div>
+                        <div class="floating-tech">
+                            <div class="tech-icon" data-icon="⚡"></div>
+                            <div class="tech-icon" data-icon="🔌"></div>
+                            <div class="tech-icon" data-icon="💻"></div>
+                            <div class="tech-icon" data-icon="🌐"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Text -->
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-pulse"></span>
+                        Electronics & Telecommunication Engineer
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line line-1">Md Hamed</span>
+                        <span class="title-line line-2">Hasan</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        Crafting <span class="typed-text"></span><span class="typed-cursor">|</span>
+                    </p>
+
+                    <p class="hero-description">
+                        Passionate about transforming innovative ideas into cutting-edge electronic solutions. 
+                        Specializing in embedded systems, IoT, and circuit design with a focus on creating 
+                        impactful technology.
+                    </p>
+
+                    <!-- Quick Stats -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="15">0</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="3">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="8">0</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <span class="btn-icon">
+                                <i class="fas fa-rocket"></i>
+                            </span>
+                            <span class="btn-text">View Projects</span>
+                            <div class="btn-shine"></div>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span class="btn-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </span>
+                            <span class="btn-text">Get In Touch</span>
+                        </a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="hero-social">
+                        <a href="https://github.com/HamedHasann" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hamed-hasan-15072927a/" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:hamed2002273@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">About Me</span>
+                <h2 class="section-title">Crafting Digital Excellence</h2>
+                <p class="section-subtitle">Transforming ideas into innovative electronic solutions</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-main">
+                    <div class="about-text">
+                        <h3>Innovation Through Electronics</h3>
+                        <p>
+                            I am a passionate Electronics & Telecommunication Engineering student at CUET, 
+                            dedicated to pushing the boundaries of technology through innovative hardware 
+                            and software solutions.
+                        </p>
+                        <p>
+                            My expertise spans across embedded systems, IoT development, circuit design, 
+                            and PCB fabrication. I believe in creating technology that not only functions 
+                            flawlessly but also makes a meaningful impact.
+                        </p>
+
+                        <div class="about-features">
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Hardware Design</h4>
+                                    <p>Custom circuit design and PCB development</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Embedded Systems</h4>
+                                    <p>Microcontroller programming and system integration</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-wifi"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>IoT Solutions</h4>
+                                    <p>Connected devices and smart automation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-visual">
+                        <div class="visual-card">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="tech-stack">
+                                    <div class="tech-item">
+                                        <span class="tech-name">Arduino</span>
+                                        <div class="tech-bar">
+                                            <div class="tech-progress" data-width="90"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tech-item">
+                                        <span class="tech-name">ESP32</span>
+                                        <div class="tech-bar">
+                                            <div class="tech-progress" data-width="85"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tech-item">
+                                        <span class="tech-name">PCB Design</span>
+                                        <div class="tech-bar">
+                                            <div class="tech-progress" data-width="88"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">My Skills</span>
+                <h2 class="section-title">Technical Expertise</h2>
+                <p class="section-subtitle">Mastering the tools and technologies that power innovation</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>Hardware</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Circuit Design</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">PCB Design</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Arduino/ESP32</span>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Programming</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C/C++</span>
+                                <span class="skill-percent">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Embedded C</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Tools & Software</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Proteus</span>
+                                <span class="skill-percent">87%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="87"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MATLAB</span>
+                                <span class="skill-percent">78%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="78"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">AutoCAD</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">My Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Showcasing innovative solutions and cutting-edge technology</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Smart Power Supply">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Power Supply</h3>
+                        <p class="project-description">
+                            Regulated 5V power supply with advanced protection circuits and efficiency optimization.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Circuit Design</span>
+                            <span class="tech-tag">PCB</span>
+                            <span class="tech-tag">7805 IC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Line-Following Robot">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Line-Following Robot</h3>
+                        <p class="project-description">
+                            Autonomous robot with PID control algorithm and obstacle detection capabilities.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Arduino</span>
+                            <span class="tech-tag">IR Sensors</span>
+                            <span class="tech-tag">PID Control</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="IoT Weather System">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">IoT Weather Monitoring</h3>
+                        <p class="project-description">
+                            Real-time environmental monitoring system with cloud data logging and alerts.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">ESP32</span>
+                            <span class="tech-tag">IoT</span>
+                            <span class="tech-tag">Cloud</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Education</span>
+                <h2 class="section-title">Academic Journey</h2>
+                <p class="section-subtitle">My path to becoming an electronics engineer</p>
+            </div>
+
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021 - Present</div>
+                        <h3 class="timeline-title">Chittagong University of Engineering & Technology</h3>
+                        <p class="timeline-degree">B.Sc. in Electronics & Telecommunication Engineering</p>
+                        <div class="timeline-status">
+                            <span class="status-badge">Current</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018 - 2020</div>
+                        <h3 class="timeline-title">Chattogram Cantonment Public College</h3>
+                        <p class="timeline-degree">Higher Secondary Certificate (HSC)</p>
+                        <div class="timeline-gpa">GPA: 5.00/5.00</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2016 - 2018</div>
+                        <h3 class="timeline-title">Chittagong Collegiate School</h3>
+                        <p class="timeline-degree">Secondary School Certificate (SSC)</p>
+                        <div class="timeline-gpa">GPA: 5.00/5.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">Ready to bring your electronic ideas to life?</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:hamed2002273@gmail.com">hamed2002273@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/HamedHasann" target="_blank">github.com/HamedHasann</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/hamed-hasan-15072927a/" target="_blank">linkedin.com/in/hamed-hasan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form class="message-form">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-textarea" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <div class="logo-chip"></div>
+                        <span>Md Hamed Hasan</span>
+                    </div>
+                    <p class="footer-tagline">
+                        Building the future, one circuit at a time ⚡
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://github.com/HamedHasann" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hamed-hasan-15072927a/" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:hamed2002273@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Md Hamed Hasan. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
