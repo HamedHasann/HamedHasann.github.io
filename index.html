@@ -3,49 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Md Hamed Hasan — Engineer Portfolio (Fast)</title>
-  <meta name="description" content="Md Hamed Hasan — Electronics & Telecommunication engineer. Embedded systems, PCB design, IoT." />
+  <title>Md Hamed Hasan — Cyberpunk Engineer Portfolio</title>
+  <meta name="description" content="Md Hamed Hasan — Electronics & Telecommunication Engineer. Embedded systems, PCB, IoT." />
 
-  <!-- Fonts + Icons -->
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Preload key image -->
-  <link rel="preload" as="image" href="assets/images/profile.jpg">
-
-  <!-- Lightweight deferred JS -->
+  <!-- Defer JS -->
   <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- Decorative canvas (low-cost) -->
+  <canvas id="bg" aria-hidden="true"></canvas>
 
-  <!-- FAST: decorative canvas (very small, low CPU) -->
-  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <!-- Loading overlay -->
+  <div id="loading" class="loading">
+    <div class="loader">
+      <svg class="spin" viewBox="0 0 50 50" width="60" height="60">
+        <circle cx="25" cy="25" r="20" stroke="none" stroke-width="4" fill="none" />
+      </svg>
+      <small>Syncing circuits...</small>
+    </div>
+  </div>
 
   <!-- NAV -->
   <header class="nav">
-    <div class="wrap">
-      <a class="brand" href="#home">
-        <span class="brand-chip" aria-hidden="true"></span>
-        <strong>Hamed</strong>
+    <div class="nav-inner">
+      <a class="logo" href="#home">
+        <span class="logo-chip" aria-hidden="true"></span>
+        <span class="logo-text">Hamed</span>
       </a>
-      <nav class="links" id="navLinks">
+
+      <nav class="nav-links" id="navLinks">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
-      <button id="mobileToggle" class="menu-btn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+
+      <div class="nav-actions">
+        <a class="btn ghost" href="assets/resume.pdf" download>Resume</a>
+        <button id="menuBtn" class="icon-btn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+      </div>
     </div>
   </header>
 
-  <!-- MOBILE NAV -->
-  <div id="mobileMenu" class="mobile-menu" hidden>
-    <button id="mobileClose" class="menu-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
-    <nav class="mobile-links">
+  <!-- Mobile menu -->
+  <div id="mobile" class="mobile-menu" hidden>
+    <button id="mobileClose" class="mobile-close" aria-label="Close"><i class="fas fa-times"></i></button>
+    <nav class="mobile-nav">
       <a href="#home" class="mobile-link">Home</a>
       <a href="#about" class="mobile-link">About</a>
       <a href="#skills" class="mobile-link">Skills</a>
@@ -57,38 +68,51 @@
   <!-- HERO -->
   <main>
     <section id="home" class="hero">
-      <div class="wrap hero-grid">
-        <!-- Visual column -->
+      <div class="container hero-grid">
+        <!-- Visual -->
         <div class="visual">
-          <div class="profile-wrap">
-            <div class="orbits" aria-hidden="true"></div>
-            <div class="profile-card">
-              <img src="assets/images/profile.jpg" alt="Md Hamed Hasan" class="profile-img" loading="lazy">
-              <div class="badge">Available · Open to projects</div>
-            </div>
-            <div class="floating-tech" aria-hidden="true">
-              <span class="tech">⚡</span>
-              <span class="tech">🔌</span>
-              <span class="tech">📡</span>
+          <div class="profile-orbit" aria-hidden="true">
+            <span class="orbit ring-1"></span>
+            <span class="orbit ring-2"></span>
+            <span class="orbit ring-3"></span>
+          </div>
+
+          <div class="profile-card">
+            <!-- replace src with /mnt/data/profile.jpg if you want to use uploaded file -->
+            <img src="assets/images/profile.jpg" alt="Md Hamed Hasan" class="profile-img" loading="lazy">
+            <div class="profile-badge"><span class="dot"></span>Available for projects</div>
+            <div class="float-icons" aria-hidden="true">
+              <span class="fi">⚡</span>
+              <span class="fi">🔌</span>
+              <span class="fi">📡</span>
             </div>
           </div>
         </div>
 
-        <!-- Content column -->
+        <!-- Content -->
         <div class="intro">
-          <p class="kicker">Electronics & Telecommunication Engineer</p>
-          <h1>Md Hamed <span class="accent">Hasan</span></h1>
-          <p class="lead">I design embedded systems, IoT devices and PCBs — blending hardware engineering with clean, futuristic UI.</p>
+          <span class="kicker">Electronics & Telecommunication Engineer</span>
+          <h1 class="title">Md Hamed <span class="accent">Hasan</span></h1>
+          <p class="subtitle">I craft embedded systems, IoT solutions and PCB prototypes — blending hardware precision with futuristic UI.</p>
 
-          <div class="cta-row">
-            <a class="btn primary" href="#projects"><i class="fas fa-rocket"></i> View Projects</a>
-            <a class="btn ghost" href="assets/resume.pdf" download><i class="fas fa-download"></i> Resume</a>
+          <div class="cta">
+            <a href="#projects" class="btn primary"><i class="fas fa-rocket"></i> View Projects</a>
+            <a href="#contact" class="btn outline"><i class="fas fa-paper-plane"></i> Contact</a>
           </div>
 
           <div class="stats">
-            <div class="stat"><strong data-count="15">0</strong><small>Projects</small></div>
-            <div class="stat"><strong data-count="3">0</strong><small>Years</small></div>
-            <div class="stat"><strong data-count="8">0</strong><small>Technologies</small></div>
+            <div class="stat">
+              <div class="num" data-count="15">0</div>
+              <small>Projects</small>
+            </div>
+            <div class="stat">
+              <div class="num" data-count="3">0</div>
+              <small>Years</small>
+            </div>
+            <div class="stat">
+              <div class="num" data-count="8">0</div>
+              <small>Technologies</small>
+            </div>
           </div>
 
           <div class="socials">
@@ -99,36 +123,38 @@
         </div>
       </div>
 
-      <div class="scroll-note" aria-hidden="true"><i class="fas fa-chevron-down"></i> Scroll</div>
+      <div class="scroll-hint" aria-hidden="true">
+        <i class="fas fa-chevron-down"></i> Scroll to explore
+      </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="section">
-      <div class="wrap">
+      <div class="container">
         <header class="section-head">
           <span class="label">About</span>
-          <h2>Engineer. Maker. Problem Solver.</h2>
-          <p class="subtitle">From schematics to firmware — I build reliable, optimized electronics.</p>
+          <h2>Engineer. Maker. Problem-solver.</h2>
+          <p class="lead">I turn schematics into products — PCB layout, embedded firmware and IoT integration with production-friendly design choices.</p>
         </header>
 
-        <div class="two-col">
-          <div class="copy">
-            <p>I'm studying Electronics & Telecommunication at CUET. I focus on embedded systems, low-power PCB design, and IoT solutions. My work emphasizes dependable firmware, efficient power systems and producible PCBs.</p>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>I study Electronics & Telecommunication at CUET. My focus is embedded systems, low-power PCB design, and reliable firmware. I prioritize reproducible hardware, optimized BOMs and readable, maintainable code.</p>
 
-            <ul class="bullets">
-              <li><strong>PCB & Schematics</strong> — KiCad, DRC, Gerbers</li>
-              <li><strong>Embedded Firmware</strong> — C/C++, ESP32, Arduino</li>
-              <li><strong>IoT</strong> — MQTT, REST, Cloud logging</li>
+            <ul class="features">
+              <li><strong>PCB & Schematics</strong> — KiCad, Gerber output, DRC</li>
+              <li><strong>Embedded Firmware</strong> — C/C++, ESP32, RTOS basics</li>
+              <li><strong>IoT</strong> — MQTT, Cloud logging, data visualization</li>
             </ul>
           </div>
 
-          <aside class="card">
-            <div class="card-holo">Quick Stats</div>
-            <dl class="specs">
-              <div><dt>Boards</dt><dd>8+</dd></div>
-              <div><dt>Repos</dt><dd>12</dd></div>
-              <div><dt>Talks</dt><dd>2</dd></div>
-            </dl>
+          <aside class="card holo">
+            <div class="card-head">System Status</div>
+            <div class="card-stats">
+              <div><small>Boards</small><strong>8 shipped</strong></div>
+              <div><small>Repos</small><strong>12</strong></div>
+              <div><small>Talks</small><strong>2</strong></div>
+            </div>
           </aside>
         </div>
       </div>
@@ -136,33 +162,31 @@
 
     <!-- SKILLS -->
     <section id="skills" class="section dark">
-      <div class="wrap">
+      <div class="container">
         <header class="section-head">
           <span class="label">Skills</span>
-          <h2>Technical Expertise</h2>
-          <p class="subtitle">Tools I use daily</p>
+          <h2>Tools & Technologies</h2>
+          <p class="lead">What I use daily</p>
         </header>
 
-        <div class="skill-grid">
+        <div class="skills-grid">
           <div class="skill-col">
             <h4>Hardware</h4>
-            <div class="skill"><div class="name">PCB Design</div><div class="bar"><div class="fill" style="width:88%"></div></div></div>
-            <div class="skill"><div class="name">Circuit Design</div><div class="bar"><div class="fill" style="width:90%"></div></div></div>
-            <div class="skill"><div class="name">Power Design</div><div class="bar"><div class="fill" style="width:74%"></div></div></div>
+            <div class="skill"><span>PCB Design</span><span class="bar"><i style="width:88%"></i></span></div>
+            <div class="skill"><span>Circuit Design</span><span class="bar"><i style="width:90%"></i></span></div>
+            <div class="skill"><span>Power Electronics</span><span class="bar"><i style="width:74%"></i></span></div>
           </div>
-
           <div class="skill-col">
             <h4>Embedded</h4>
-            <div class="skill"><div class="name">C / C++</div><div class="bar"><div class="fill" style="width:92%"></div></div></div>
-            <div class="skill"><div class="name">Python</div><div class="bar"><div class="fill" style="width:78%"></div></div></div>
-            <div class="skill"><div class="name">RTOS / Firmware</div><div class="bar"><div class="fill" style="width:82%"></div></div></div>
+            <div class="skill"><span>C / C++</span><span class="bar"><i style="width:92%"></i></span></div>
+            <div class="skill"><span>Python</span><span class="bar"><i style="width:78%"></i></span></div>
+            <div class="skill"><span>RTOS / Firmware</span><span class="bar"><i style="width:82%"></i></span></div>
           </div>
-
           <div class="skill-col">
             <h4>Tools</h4>
-            <div class="skill"><div class="name">KiCad / Proteus</div><div class="bar"><div class="fill" style="width:87%"></div></div></div>
-            <div class="skill"><div class="name">MATLAB</div><div class="bar"><div class="fill" style="width:78%"></div></div></div>
-            <div class="skill"><div class="name">Git</div><div class="bar"><div class="fill" style="width:85%"></div></div></div>
+            <div class="skill"><span>KiCad / Proteus</span><span class="bar"><i style="width:87%"></i></span></div>
+            <div class="skill"><span>MATLAB</span><span class="bar"><i style="width:78%"></i></span></div>
+            <div class="skill"><span>Git</span><span class="bar"><i style="width:85%"></i></span></div>
           </div>
         </div>
       </div>
@@ -170,30 +194,29 @@
 
     <!-- PROJECTS -->
     <section id="projects" class="section">
-      <div class="wrap">
+      <div class="container">
         <header class="section-head">
           <span class="label">Projects</span>
           <h2>Selected Work</h2>
-          <p class="subtitle">Hardware prototypes and embedded firmware</p>
+          <p class="lead">Hardware prototypes, firmware, and IoT systems</p>
         </header>
 
-        <div class="projects-grid" id="projectsGrid">
-          <!-- Lightweight project cards -- populate later or via JS -->
-          <article class="proj">
+        <div class="projects">
+          <article class="project">
             <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=60" alt="Smart Power Supply" loading="lazy">
             <div class="p-body">
               <h3>Smart Power Supply</h3>
-              <p>Efficient 5V regulated supply with protections for embedded systems.</p>
+              <p>Efficient regulated 5V supply with active protection and thermal foldback for embedded products.</p>
               <div class="tags"><span>PCB</span><span>Power</span></div>
             </div>
           </article>
 
-          <article class="proj">
+          <article class="project">
             <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=60" alt="Line-Following Robot" loading="lazy">
             <div class="p-body">
               <h3>Line-Following Robot</h3>
-              <p>PID controlled autonomous robot with sensors and obstacle avoidance.</p>
-              <div class="tags"><span>Arduino</span><span>Algorithms</span></div>
+              <p>Autonomous robot with PID steering and obstacle detection.</p>
+              <div class="tags"><span>Arduino</span><span>Control</span></div>
             </div>
           </article>
         </div>
@@ -202,26 +225,26 @@
 
     <!-- CONTACT -->
     <section id="contact" class="section dark">
-      <div class="wrap">
+      <div class="container">
         <header class="section-head">
           <span class="label">Contact</span>
           <h2>Let's build something</h2>
-          <p class="subtitle">Reach out for projects, collaborations or questions.</p>
+          <p class="lead">Reach out for projects, internships or collaborations.</p>
         </header>
 
-        <div class="two-col">
+        <div class="contact-grid">
           <form id="contactForm" class="contact-form" novalidate>
             <input name="name" placeholder="Your name" required>
             <input name="email" type="email" placeholder="Email" required>
             <textarea name="message" rows="6" placeholder="Message" required></textarea>
             <div class="form-row">
-              <button class="btn primary" type="submit">Send</button>
+              <button class="btn primary" type="submit">Send Message</button>
               <button id="copyEmail" type="button" class="btn ghost">Copy Email</button>
             </div>
           </form>
 
           <aside class="card contact-card">
-            <div class="card-holo">Contact Details</div>
+            <div class="card-head">Contact Details</div>
             <p><i class="fas fa-map-marker-alt"></i> Chittagong, Bangladesh</p>
             <p><i class="fas fa-envelope"></i> <a href="mailto:hamed2002273@gmail.com">hamed2002273@gmail.com</a></p>
             <p><i class="fas fa-phone"></i> +88 — (add number)</p>
@@ -233,9 +256,9 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="wrap footer-row">
+    <div class="container footer-row">
       <div>© <span id="year"></span> Md Hamed Hasan</div>
-      <div class="foot-links"><a href="#">Privacy</a> <a href="#">Terms</a></div>
+      <div class="foot-links"><a href="#">Privacy</a> · <a href="#">Terms</a></div>
     </div>
   </footer>
 
