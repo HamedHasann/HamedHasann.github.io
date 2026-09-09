@@ -551,7 +551,7 @@
             </dl>
           </div>
 
-          <form id="contact-form" novalidate>
+          <form id="contact-form" action="https://formspree.io/f/mljeokpq" method="POST" novalidate>
             <div class="form-field">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" autocomplete="name" required>
@@ -571,7 +571,7 @@
       </section>
 
       <div class="notice">
-        This form validates input in the browser but doesn't send email yet — there's no backend attached. Wire it up with a service like Formspree or EmailJS, or point it at your own endpoint (see the comment at the top of <code>setupContactForm()</code> in <code>script.js</code>).
+        This form submits to Formspree and delivers messages straight to hamed2002273@gmail.com. If you ever need to change where messages go, update the form's <code>action</code> URL in <code>index.html</code> and the Formspree dashboard.
       </div>
     </section>
 
