@@ -74,38 +74,61 @@ function setupMobileNav() {
   });
 }
 
-// Front-end only contact form: validates and shows a confirmation message.
-// Replace this handler with a real submission (e.g. Formspree, EmailJS,
-// or your own backend) when you're ready to receive messages.
+// Contact form: validates client-side, then submits to Formspree
+// (https://formspree.io/f/mljeokpq) so messages are emailed directly.
 function setupContactForm() {
   const form = document.querySelector("#contact-form");
   if (!form) return;
 
   const msg = form.querySelector(".form-msg");
+  const submitBtn = form.querySelector("button[type='submit']");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const message = form.message.value.trim();
 
+    msg.classList.remove("success", "error");
+
     if (!name || !email || !message) {
       msg.textContent = "Please fill in every field before sending.";
-      msg.classList.remove("success");
+      msg.classList.add("error");
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
       msg.textContent = "That email address doesn't look right.";
-      msg.classList.remove("success");
+      msg.classList.add("error");
       return;
     }
 
-    // No backend is wired up yet — this only confirms the form works.
-    msg.textContent = "Message ready to send — connect a form backend (see comment in script.js) to deliver it.";
-    msg.classList.add("success");
-    form.reset();
+    submitBtn.disabled = true;
+    msg.textContent = "Sending…";
+    msg.classList.remove("success", "error");
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+
+      if (response.ok) {
+        msg.textContent = "Thanks — your message has been sent. I'll get back to you soon.";
+        msg.classList.add("success");
+        form.reset();
+      } else {
+        msg.textContent = "Something went wrong. Please email me directly at hamed2002273@gmail.com.";
+        msg.classList.add("error");
+      }
+    } catch (err) {
+      msg.textContent = "Something went wrong. Please email me directly at hamed2002273@gmail.com.";
+      msg.classList.add("error");
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 }
