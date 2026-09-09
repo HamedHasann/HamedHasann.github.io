@@ -1,43 +1,73 @@
-// Footer year
-document.getElementById("year").textContent = new Date().getFullYear();
+// =========================================================
+// Hamed Hasan — Portfolio
+// Shared behaviour across all pages
+// =========================================================
 
-// Mobile nav toggle
-const header = document.getElementById("siteHeader");
-const navToggle = document.getElementById("navToggle");
-
-navToggle.addEventListener("click", () => {
-  const isOpen = header.classList.toggle("open");
-  navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+document.addEventListener("DOMContentLoaded", () => {
+  markActiveNavLink();
+  setupMobileNav();
+  setupContactForm();
 });
 
-document.querySelectorAll(".nav a").forEach((link) => {
-  link.addEventListener("click", () => {
-    header.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
+// Highlight the current page in both the sidebar and mobile nav
+function markActiveNavLink() {
+  const current = (location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll(".nav-links a, .mobile-nav a").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href === current || (current === "" && href === "index.html")) {
+      link.classList.add("active");
+    }
   });
-});
+}
 
-// Highlight active section in both the header nav and the side progress rail
-const sections = document.querySelectorAll("main section[id]");
-const railLinks = document.querySelectorAll(".rail a");
-const navLinks = document.querySelectorAll(".nav a");
+// Toggle the mobile menu open/closed
+function setupMobileNav() {
+  const btn = document.querySelector(".menu-btn");
+  const menu = document.querySelector(".mobile-nav");
+  if (!btn || !menu) return;
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const id = entry.target.getAttribute("id");
+  btn.addEventListener("click", () => {
+    const isOpen = menu.classList.toggle("open");
+    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
 
-      railLinks.forEach((l) => l.classList.remove("active"));
-      const railLink = document.querySelector(`.rail a[href="#${id}"]`);
-      if (railLink) railLink.classList.add("active");
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => menu.classList.remove("open"));
+  });
+}
 
-      navLinks.forEach((l) => l.classList.remove("active"));
-      const navLink = document.querySelector(`.nav a[href="#${id}"]`);
-      if (navLink) navLink.classList.add("active");
-    });
-  },
-  { rootMargin: "-40% 0px -50% 0px" }
-);
+// Front-end only contact form: validates and shows a confirmation message.
+// Replace this handler with a real submission (e.g. Formspree, EmailJS,
+// or your own backend) when you're ready to receive messages.
+function setupContactForm() {
+  const form = document.querySelector("#contact-form");
+  if (!form) return;
 
-sections.forEach((section) => observer.observe(section));
+  const msg = form.querySelector(".form-msg");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+      msg.textContent = "Please fill in every field before sending.";
+      msg.classList.remove("success");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      msg.textContent = "That email address doesn't look right.";
+      msg.classList.remove("success");
+      return;
+    }
+
+    // No backend is wired up yet — this only confirms the form works.
+    msg.textContent = "Message ready to send — connect a form backend (see comment in script.js) to deliver it.";
+    msg.classList.add("success");
+    form.reset();
+  });
+}
