@@ -3,76 +3,83 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hamed Hasan — Engineer & Developer</title>
-<meta name="description" content="Portfolio of Hamed Hasan — Machine Learning, VLSI Design and Web Development." />
+<title>Md. Hamed Hasan — Electronics &amp; ML Engineer</title>
+<meta name="description" content="Portfolio of Md. Hamed Hasan — Electronics & Telecommunication Engineering student working across VLSI design, machine learning and web development." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="grid-line grid-line--left" aria-hidden="true"></div>
-<div class="grid-line grid-line--right" aria-hidden="true"></div>
-
-<header class="site-header">
-  <a href="#top" class="logo">HH<span class="logo-dot">.</span></a>
+<header class="site-header" id="siteHeader">
+  <a href="#top" class="logo">MHH</a>
   <nav class="nav" id="nav">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
   </nav>
-  <a class="nav-cta" href="https://github.com/HamedHasann" target="_blank" rel="noopener">GitHub ↗</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="header-actions">
+    <a class="nav-cta" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 
 <main id="top">
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <svg class="circuit" viewBox="0 0 600 600" aria-hidden="true">
-      <path d="M20 300 H180 M180 300 V120 H340 M180 300 V480 H300 M340 120 H520 M300 480 H460 V300 H580" />
-      <circle cx="180" cy="300" r="6"></circle>
-      <circle cx="340" cy="120" r="6"></circle>
-      <circle cx="300" cy="480" r="6"></circle>
-      <circle cx="460" cy="300" r="6"></circle>
-      <circle cx="520" cy="120" r="6"></circle>
-      <circle cx="580" cy="300" r="6"></circle>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <svg class="chip-mark" viewBox="0 0 200 200" aria-hidden="true">
+      <rect x="60" y="60" width="80" height="80" rx="6"></rect>
+      <g class="chip-pins">
+        <line x1="60" y1="80" x2="30" y2="80"></line>
+        <line x1="60" y1="100" x2="30" y2="100"></line>
+        <line x1="60" y1="120" x2="30" y2="120"></line>
+        <line x1="140" y1="80" x2="170" y2="80"></line>
+        <line x1="140" y1="100" x2="170" y2="100"></line>
+        <line x1="140" y1="120" x2="170" y2="120"></line>
+        <line x1="80" y1="60" x2="80" y2="30"></line>
+        <line x1="100" y1="60" x2="100" y2="30"></line>
+        <line x1="120" y1="60" x2="120" y2="30"></line>
+        <line x1="80" y1="140" x2="80" y2="170"></line>
+        <line x1="100" y1="140" x2="100" y2="170"></line>
+        <line x1="120" y1="140" x2="120" y2="170"></line>
+      </g>
     </svg>
 
-    <div class="hero-content">
-      <p class="hero-kicker">Chattogram, Bangladesh</p>
-      <h1>
-        Hamed Hasan builds
-        <span class="hero-line">systems that learn</span>
-        <span class="hero-line">and circuits that run.</span>
-      </h1>
-      <p class="hero-lede">
-        I work across three layers of computing — training machine learning models,
-        designing digital circuits at the silicon level, and shipping the web
-        applications that sit on top. Based in Bangladesh, building for anywhere.
-      </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">See my work</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
-      </div>
+    <p class="hero-kicker">Muradpur, Chattogram · BSc ETE, CUET</p>
+    <h1 class="hero-title">
+      Md. Hamed Hasan
+    </h1>
+    <p class="hero-role">Electronics &amp; Telecommunication Engineering student building across silicon, software and the web.</p>
+    <p class="hero-lede">
+      I move between three layers of the same stack — laying out CMOS circuits in Cadence,
+      training segmentation models on satellite imagery, and shipping the web front-ends
+      that connect hardware to people. Currently completing my B.Sc. at CUET.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">See my work</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
     </div>
 
     <div class="hero-stats">
       <div class="stat">
-        <span class="stat-num">3</span>
-        <span class="stat-label">Focus areas</span>
+        <span class="stat-num">81.5%</span>
+        <span class="stat-label">Pixel accuracy, SegFormer land-cover model</span>
       </div>
       <div class="stat">
-        <span class="stat-num">7</span>
-        <span class="stat-label">Public repositories</span>
+        <span class="stat-num">2022–26</span>
+        <span class="stat-label">B.Sc. Electronics &amp; Telecom Eng., CUET</span>
       </div>
       <div class="stat">
-        <span class="stat-num">100%</span>
-        <span class="stat-label">Curiosity-driven</span>
+        <span class="stat-num">5.00</span>
+        <span class="stat-label">GPA at both SSC and HSC</span>
       </div>
     </div>
   </section>
@@ -80,61 +87,79 @@
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="section-head">
+      <span class="section-kicker">01</span>
       <h2>About</h2>
     </div>
-    <div class="about-body">
-      <p>
-        I'm a student and self-taught engineer with a habit of chasing problems
-        down to the hardware. That means my work spans notebooks full of model
-        experiments, schematics for logic circuits, and browser tabs full of CSS.
-        I like understanding how something works underneath before I trust
-        myself to build on top of it.
+    <div class="about-grid">
+      <p class="about-lead">
+        A multidisciplinary engineer-in-training, equally comfortable with a
+        transistor-level schematic and a training loop.
       </p>
-      <p>
-        Right now I'm splitting my time between machine learning coursework and
-        projects, VLSI design fundamentals, and front-end web development —
-        treating each as a different lens on the same question: how do you take
-        an idea and turn it into something that actually runs.
-      </p>
+      <div class="about-body">
+        <p>
+          I'm a B.Sc. Engineering student at Chittagong University of Engineering
+          &amp; Technology with a background spanning semiconductor technology,
+          hardware development, software and machine learning. Most of what I
+          know, I've learned by finishing academic projects end to end — from
+          physical circuit layout to a deployed web interface.
+        </p>
+        <p>
+          That range shapes how I approach problems: I want to understand the
+          system underneath, whether that's how a standard cell is laid out in
+          silicon or how a transformer model segments a satellite image, before
+          I trust myself to build on top of it.
+        </p>
+        <ul class="lang-list">
+          <li><span>Bangla</span><small>Native</small></li>
+          <li><span>English</span><small>Fluent</small></li>
+          <li><span>Urdu</span><small>Conversational</small></li>
+          <li><span>Hindi</span><small>Conversational</small></li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- SKILLS -->
   <section class="skills" id="skills">
     <div class="section-head">
-      <h2>What I work with</h2>
+      <span class="section-kicker">02</span>
+      <h2>Skills</h2>
     </div>
 
     <div class="skill-groups">
       <article class="skill-card">
-        <h3>Machine Learning</h3>
-        <p>Model building and experimentation in notebooks — from data cleaning to evaluation.</p>
+        <h3>IC Layout &amp; Circuit Design</h3>
+        <p>Custom and semi-custom layout work with an emphasis on verified, optimized silicon.</p>
         <ul class="tag-list">
-          <li>Python</li>
-          <li>NumPy / Pandas</li>
-          <li>Scikit-learn</li>
-          <li>Jupyter</li>
+          <li>Cadence Virtuoso</li>
+          <li>DRC &amp; LVS</li>
+          <li>Spectre Simulation</li>
+          <li>CMOS Digital Logic</li>
+          <li>Standard Cell Design</li>
+          <li>Microchip Architecture</li>
         </ul>
       </article>
 
-      <article class="skill-card">
-        <h3>VLSI Design</h3>
-        <p>Digital logic and circuit design — thinking in gates, timing and silicon-level constraints.</p>
+      <article class="skill-card skill-card--accent">
+        <h3>Programming &amp; Data Science</h3>
+        <p>From data structures to deployed models, with a focus on computer vision.</p>
         <ul class="tag-list">
-          <li>Digital Logic</li>
-          <li>Verilog</li>
-          <li>Circuit Design</li>
-          <li>Simulation</li>
+          <li>Python</li>
+          <li>PyTorch</li>
+          <li>Scikit-learn</li>
+          <li>NumPy &amp; Pandas</li>
+          <li>Computer Vision</li>
+          <li>Data Structures</li>
         </ul>
       </article>
 
       <article class="skill-card">
         <h3>Web Development</h3>
-        <p>Building interfaces and small applications from markup up to interaction.</p>
+        <p>Full front-end builds, plus the backend and CMS work needed to make them dynamic.</p>
         <ul class="tag-list">
-          <li>HTML / CSS</li>
-          <li>JavaScript</li>
-          <li>Responsive Design</li>
+          <li>HTML / CSS / JS</li>
+          <li>Responsive UI</li>
+          <li>Backend &amp; CMS Integration</li>
           <li>Git &amp; GitHub</li>
         </ul>
       </article>
@@ -144,45 +169,160 @@
   <!-- PROJECTS -->
   <section class="projects" id="projects">
     <div class="section-head">
-      <h2>Selected repositories</h2>
+      <span class="section-kicker">03</span>
+      <h2>Projects</h2>
       <a class="see-all" href="https://github.com/HamedHasann?tab=repositories" target="_blank" rel="noopener">
-        View all on GitHub ↗
+        All repositories ↗
       </a>
     </div>
 
-    <div class="project-grid">
-      <a class="project-card" href="https://github.com/HamedHasann/Machine_Learning" target="_blank" rel="noopener">
-        <div class="project-top">
-          <span class="project-lang lang-python">Jupyter Notebook</span>
-        </div>
-        <h3>Machine_Learning</h3>
-        <p>A collection of machine learning experiments and notebooks covering core algorithms and workflows.</p>
-        <span class="project-link">View repository ↗</span>
-      </a>
+    <div class="project-list">
 
-      <a class="project-card" href="https://github.com/HamedHasann/VLSI_Design" target="_blank" rel="noopener">
-        <div class="project-top">
-          <span class="project-lang lang-hw">Hardware</span>
+      <article class="project-row project-row--featured">
+        <div class="project-tag">Machine Learning · Featured</div>
+        <h3>Satellite Image Processing for Ecosystem Health &amp; Land Cover Dynamics</h3>
+        <p>
+          Fine-tuned a hierarchical transformer (SegFormer, MiT-B5) for 7-class
+          land-cover semantic segmentation on the LoveDA benchmark, reaching
+          81.54% pixel accuracy and 55.31% mIoU — outperforming PSPNet and
+          UNetFormer baselines.
+        </p>
+        <div class="project-meta">
+          <span>SegFormer</span><span>PyTorch</span><span>Computer Vision</span>
         </div>
-        <h3>VLSI_Design</h3>
-        <p>Digital circuit design work exploring logic design and the fundamentals of chip-level engineering.</p>
-        <span class="project-link">View repository ↗</span>
-      </a>
+        <a href="https://github.com/HamedHasann/Machine_Learning" target="_blank" rel="noopener" class="project-link">View repository ↗</a>
+      </article>
 
-      <a class="project-card" href="https://github.com/HamedHasann/Web_Development" target="_blank" rel="noopener">
-        <div class="project-top">
-          <span class="project-lang lang-web">HTML</span>
+      <article class="project-row">
+        <div class="project-tag">IoT &amp; Embedded Systems</div>
+        <h3>IoT-Based Web-Controlled Vending Machine</h3>
+        <p>
+          Team-built vending machine using an ESP32 to drive a stepper motor
+          through a motor driver, paired with a website that handled product
+          selection, mobile banking payment, and a database for transactions
+          and inventory.
+        </p>
+        <div class="project-meta">
+          <span>ESP32</span><span>PHP</span><span>Database</span>
         </div>
-        <h3>Web_Development</h3>
-        <p>Front-end projects and practice builds covering layout, styling and interactivity in the browser.</p>
-        <span class="project-link">View repository ↗</span>
-      </a>
+        <a href="https://github.com/HamedHasann/Embedded_Systems_IoT" target="_blank" rel="noopener" class="project-link">View repository ↗</a>
+      </article>
+
+      <article class="project-row">
+        <div class="project-tag">Web Development</div>
+        <h3>CUET University Website</h3>
+        <p>
+          Built a full university website from the ground up — UI/UX
+          wireframing, a responsive front-end, and backend/CMS integration
+          for dynamic content like announcements, an event calendar and a
+          student portal.
+        </p>
+        <div class="project-meta">
+          <span>UI/UX</span><span>Responsive</span><span>CMS</span>
+        </div>
+        <a href="https://github.com/HamedHasann/Web_Development" target="_blank" rel="noopener" class="project-link">View repository ↗</a>
+      </article>
+
+      <article class="project-row">
+        <div class="project-tag">Hardware · Circuit Design</div>
+        <h3>Multi-Voltage Regulated Power Supply</h3>
+        <p>
+          Designed a center-tapped transformer-based supply converting 220V AC
+          mains into regulated 9V, 6V and 5V DC outputs, using a full-wave
+          rectifier, capacitor filtering and 7809/7806/7805 linear regulators.
+        </p>
+        <div class="project-meta">
+          <span>Power Electronics</span><span>Circuit Design</span>
+        </div>
+        <a href="https://github.com/HamedHasann/EDGE_Project_Md_Hamed_Hasan_2108016" target="_blank" rel="noopener" class="project-link">View repository ↗</a>
+      </article>
+
+      <article class="project-row">
+        <div class="project-tag">VLSI</div>
+        <h3>VLSI Design Fundamentals</h3>
+        <p>
+          Digital logic and circuit design work exploring standard cell layout,
+          verification and the fundamentals of chip-level engineering.
+        </p>
+        <div class="project-meta">
+          <span>CMOS</span><span>Digital Logic</span>
+        </div>
+        <a href="https://github.com/HamedHasann/VLSI_Design" target="_blank" rel="noopener" class="project-link">View repository ↗</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience" id="experience">
+    <div class="section-head">
+      <span class="section-kicker">04</span>
+      <h2>Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">May 2026</div>
+        <div class="timeline-body">
+          <h3>Web Development Intern — Industrial Attachment Program</h3>
+          <p class="timeline-org">GOVALY PTE LTD</p>
+          <p>
+            Completed a hands-on industrial attachment focused on web
+            development, gaining direct exposure to how industry
+            professionals build, optimize and scale web applications in a
+            real-world business environment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="education" id="education">
+    <div class="section-head">
+      <span class="section-kicker">05</span>
+      <h2>Education</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">2022 – 2026</div>
+        <div class="timeline-body">
+          <h3>B.Sc. in Electronics &amp; Telecommunication Engineering</h3>
+          <p class="timeline-org">Chittagong University of Engineering &amp; Technology (CUET)</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2020 – 2021</div>
+        <div class="timeline-body">
+          <h3>Higher Secondary Certificate — GPA 5.00 / 5.00</h3>
+          <p class="timeline-org">Chittagong Cantonment Public College</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2013 – 2019</div>
+        <div class="timeline-body">
+          <h3>Secondary School Certificate — GPA 5.00 / 5.00</h3>
+          <p class="timeline-org">Chittagong Collegiate School</p>
+        </div>
+      </div>
     </div>
 
-    <p class="project-note">
-      More repositories, including in-progress work, are on
-      <a href="https://github.com/HamedHasann?tab=repositories" target="_blank" rel="noopener">my GitHub profile</a>.
-    </p>
+    <div class="cert-block">
+      <h3 class="cert-heading">Certifications</h3>
+      <ul class="cert-list">
+        <li><span>Machine Learning with Python</span><small>IBM · Coursera, Aug 2026</small></li>
+        <li><span>Python Data Structures</span><small>University of Michigan · Coursera, Jul 2026</small></li>
+        <li><span>Programming for Everybody</span><small>University of Michigan · Coursera, Jul 2026</small></li>
+      </ul>
+    </div>
+
+    <div class="cert-block">
+      <h3 class="cert-heading">Leadership &amp; Extracurricular</h3>
+      <ul class="cert-list">
+        <li><span>3-Minute Thesis (3MT) Competition, SciBlitz 2.0</span><small>Participant · IEEE CUET Student Branch</small></li>
+        <li><span>District-Level Drawing Competition</span><small>4th Place</small></li>
+        <li><span>Physics &amp; Mathematics Olympiad</span><small>Participant</small></li>
+      </ul>
+    </div>
   </section>
 
   <!-- CONTACT -->
@@ -190,13 +330,17 @@
     <div class="contact-inner">
       <h2>Let's talk</h2>
       <p>
-        Open to internships, collaborations, and interesting problems in ML,
-        hardware or the web. The fastest way to reach me is email.
+        Open to internships, research collaborations, and interesting problems
+        across ML, hardware and the web.
       </p>
       <div class="contact-links">
-        <a href="mailto:your.email@example.com" class="btn btn-primary">your.email@example.com</a>
-        <a href="https://github.com/HamedHasann" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
-        <a href="#" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+        <a href="mailto:hamed2002273@gmail.com" class="btn btn-primary">hamed2002273@gmail.com</a>
+        <a href="tel:+8801849524741" class="btn btn-ghost">+880 1849-524741</a>
+      </div>
+      <div class="contact-social">
+        <a href="https://github.com/HamedHasann" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/hamed-hasan-15072927a/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a>
       </div>
     </div>
   </section>
@@ -204,7 +348,7 @@
 </main>
 
 <footer class="site-footer">
-  <p>&copy; <span id="year"></span> Hamed Hasan. Built with HTML, CSS and JavaScript.</p>
+  <p>&copy; <span id="year"></span> Md. Hamed Hasan. Built with HTML, CSS and JavaScript.</p>
   <a href="#top" class="back-top">Back to top ↑</a>
 </footer>
 
