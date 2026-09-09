@@ -726,7 +726,7 @@ html[data-theme="dark"] .form-msg.error { color: #E58C7D; }
    Responsive
    ========================================================= */
 @media (max-width: 880px) {
-  .topbar-links { display: none; }
+  .nav-links.topbar-links { display: none; }
   .menu-btn { display: flex; }
   .topbar { padding: 14px 20px; }
   .main { padding: 40px 22px 70px; }
