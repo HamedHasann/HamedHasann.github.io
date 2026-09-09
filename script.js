@@ -2,7 +2,7 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // Mobile nav toggle
-const header = document.querySelector(".site-header");
+const header = document.getElementById("siteHeader");
 const navToggle = document.getElementById("navToggle");
 
 navToggle.addEventListener("click", () => {
