@@ -364,8 +364,8 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
 }
 .hero-photo-fallback.show { display: flex; }
 @media (max-width: 900px) {
-  .hero { flex-direction: column-reverse; align-items: flex-start; gap: 28px; }
-  .hero-photo { width: 170px; height: 170px; }
+  .hero { flex-direction: column; align-items: flex-start; gap: 28px; }
+  .hero-photo { width: 190px; height: 190px; margin: 0 auto; }
 }
 .hero-trace {
   width: 100%;
@@ -752,7 +752,7 @@ html[data-theme="dark"] .form-msg.error { color: #E58C7D; }
   .section, .section.wide { margin-bottom: 40px; }
 
   .hero { gap: 22px; margin-bottom: 44px; }
-  .hero-photo { width: 130px; height: 130px; }
+  .hero-photo { width: 150px; height: 150px; margin: 0 auto; }
   .hero-photo-img, .hero-photo-fallback { border-radius: 50%; }
   .hero-name { margin-bottom: 10px; }
   .hero-role { margin-bottom: 16px; }
