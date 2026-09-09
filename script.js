@@ -4,10 +4,29 @@
 // =========================================================
 
 document.addEventListener("DOMContentLoaded", () => {
+  setupTheme();
   markActiveNavLink();
   setupMobileNav();
   setupContactForm();
 });
+
+// Light/dark theme toggle. Defaults to the visitor's OS preference,
+// then remembers whatever they pick via localStorage.
+function setupTheme() {
+  const root = document.documentElement;
+  const stored = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initial = stored || (prefersDark ? "dark" : "light");
+  root.setAttribute("data-theme", initial);
+
+  document.querySelectorAll(".theme-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+  });
+}
 
 // Highlight the nav link matching whichever section is in view (scrollspy),
 // since this is now a single-page site with in-page anchors.
