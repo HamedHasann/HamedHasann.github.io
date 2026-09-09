@@ -540,7 +540,7 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
   color: var(--ink);
   background: var(--surface);
 }
-.tag.strong { border-color: var(--teal); color: var(--teal-deep); background: #EEF4F4; }
+.tag.strong { border-color: var(--teal); color: var(--teal-deep); background: var(--teal-soft); }
 
 /* =========================================================
    Portfolio page
