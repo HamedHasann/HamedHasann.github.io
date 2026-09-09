@@ -154,7 +154,8 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   gap: 4px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-left: auto;
 }
 .nav-links.topbar-links a {
   padding: 8px 12px;
@@ -308,27 +309,41 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
    ========================================================= */
 .hero {
   max-width: var(--wide-max);
-  margin-bottom: 64px;
+  margin: 0 auto 64px;
   display: flex;
   align-items: center;
-  gap: 48px;
-  justify-content: space-between;
+  gap: 56px;
 }
 .hero-copy { flex: 1; min-width: 0; max-width: 640px; }
+
 .hero-photo {
   flex-shrink: 0;
-  width: 176px;
-  height: 176px;
-  border-radius: 50%;
+  width: 240px;
+  height: 290px;
+  border-radius: 22px;
   border: 1px solid var(--line-strong);
-  padding: 6px;
+  background: var(--surface);
+  padding: 5px;
+  box-shadow: var(--shadow-card);
   position: relative;
 }
+.hero-photo::before,
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1.5px solid var(--line-strong);
+}
+.hero-photo::before { top: -4px; right: -4px; }
+.hero-photo::after { bottom: -4px; left: -4px; }
 .hero-photo-img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
   object-fit: cover;
+  border-radius: 18px;
   display: block;
   background: var(--teal-soft);
 }
@@ -336,7 +351,7 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
 .hero-photo-fallback {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: 18px;
   background: linear-gradient(160deg, var(--teal-soft), var(--surface));
   display: none;
   align-items: center;
@@ -349,7 +364,7 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
 .hero-photo-fallback.show { display: flex; }
 @media (max-width: 900px) {
   .hero { flex-direction: column-reverse; align-items: flex-start; gap: 28px; }
-  .hero-photo { width: 120px; height: 120px; }
+  .hero-photo { width: 160px; height: 195px; }
 }
 .hero-trace {
   width: 100%;
@@ -381,8 +396,8 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
 .hero-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(48px, 8vw, 88px);
-  line-height: 1.02;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.04;
   letter-spacing: -0.02em;
   margin-bottom: 14px;
 }
@@ -392,15 +407,15 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
   font-size: clamp(15px, 1.6vw, 18px);
   letter-spacing: 0.01em;
   color: var(--ink-soft);
-  max-width: 620px;
+  max-width: 560px;
   margin-bottom: 22px;
 }
 .hero .lede {
-  font-size: 18px;
+  font-size: 17px;
   max-width: 560px;
   margin-bottom: 32px;
 }
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
 
 .btn {
   display: inline-flex;
@@ -567,16 +582,6 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
 .post h3 { font-size: 17px; margin-bottom: 6px; }
 .post p { font-size: 14.5px; margin: 0 0 8px; }
 .post-tag { font-family: var(--font-mono); font-size: 11.5px; color: var(--teal-deep); }
-.notice {
-  border: 1px dashed var(--line-strong);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  font-size: 13.5px;
-  color: var(--ink-soft);
-  max-width: var(--content-max);
-  margin-bottom: 32px;
-}
-.notice code { font-family: var(--font-mono); background: var(--bg); padding: 1px 5px; border-radius: 3px; }
 
 /* =========================================================
    Contact page
