@@ -31,7 +31,7 @@ function setupTheme() {
 // Highlight the nav link matching whichever section is in view (scrollspy),
 // since this is now a single-page site with in-page anchors.
 function markActiveNavLink() {
-  const navLinks = document.querySelectorAll(".top-nav a, .mobile-nav a[href^='#']");
+  const navLinks = document.querySelectorAll(".nav-links a, .mobile-nav a[href^='#']");
   const sections = Array.from(navLinks)
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
