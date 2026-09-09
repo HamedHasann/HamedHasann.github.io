@@ -660,6 +660,8 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
 }
 .form-msg { font-size: 13.5px; margin-top: 10px; min-height: 18px; }
 .form-msg.success { color: var(--teal-deep); }
+.form-msg.error { color: #C0392B; }
+html[data-theme="dark"] .form-msg.error { color: #E58C7D; }
 
 /* =========================================================
    Footer
