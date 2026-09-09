@@ -12,74 +12,110 @@
 </head>
 <body>
 
+<div class="blueprint-grid" aria-hidden="true"></div>
+
+<!-- Section progress rail (desktop only) -->
+<nav class="rail" id="rail" aria-label="Section progress">
+  <a href="#hero" data-label="Intro"><span></span></a>
+  <a href="#about" data-label="About"><span></span></a>
+  <a href="#skills" data-label="Skills"><span></span></a>
+  <a href="#projects" data-label="Projects"><span></span></a>
+  <a href="#journey" data-label="Journey"><span></span></a>
+  <a href="#contact" data-label="Contact"><span></span></a>
+</nav>
+
 <header class="site-header" id="siteHeader">
-  <a href="#top" class="logo">MHH</a>
+  <a href="#hero" class="logo">Hamed Hasan</a>
   <nav class="nav" id="nav">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
+    <a href="#journey">Journey</a>
   </nav>
   <div class="header-actions">
-    <a class="nav-cta" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <a class="nav-cta" href="#contact">Contact</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<main id="top">
+<main>
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <svg class="chip-mark" viewBox="0 0 200 200" aria-hidden="true">
-      <rect x="60" y="60" width="80" height="80" rx="6"></rect>
-      <g class="chip-pins">
-        <line x1="60" y1="80" x2="30" y2="80"></line>
-        <line x1="60" y1="100" x2="30" y2="100"></line>
-        <line x1="60" y1="120" x2="30" y2="120"></line>
-        <line x1="140" y1="80" x2="170" y2="80"></line>
-        <line x1="140" y1="100" x2="170" y2="100"></line>
-        <line x1="140" y1="120" x2="170" y2="120"></line>
-        <line x1="80" y1="60" x2="80" y2="30"></line>
-        <line x1="100" y1="60" x2="100" y2="30"></line>
-        <line x1="120" y1="60" x2="120" y2="30"></line>
-        <line x1="80" y1="140" x2="80" y2="170"></line>
-        <line x1="100" y1="140" x2="100" y2="170"></line>
-        <line x1="120" y1="140" x2="120" y2="170"></line>
-      </g>
-    </svg>
+    <span class="crop crop--tl" aria-hidden="true"></span>
+    <span class="crop crop--tr" aria-hidden="true"></span>
+    <span class="crop crop--bl" aria-hidden="true"></span>
+    <span class="crop crop--br" aria-hidden="true"></span>
 
-    <p class="hero-kicker">Muradpur, Chattogram · BSc ETE, CUET</p>
-    <h1 class="hero-title">
-      Md. Hamed Hasan
-    </h1>
-    <p class="hero-role">Electronics &amp; Telecommunication Engineering student building across silicon, software and the web.</p>
-    <p class="hero-lede">
-      I move between three layers of the same stack — laying out CMOS circuits in Cadence,
-      training segmentation models on satellite imagery, and shipping the web front-ends
-      that connect hardware to people. Currently completing my B.Sc. at CUET.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">See my work</a>
-      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    <div class="hero-copy">
+      <p class="hero-kicker reveal" style="--d:0">Electronics &amp; Telecommunication Engineering, CUET</p>
+      <h1 class="hero-title">
+        <span class="reveal" style="--d:1">Md. Hamed</span>
+        <span class="reveal" style="--d:2">Hasan</span>
+      </h1>
+      <p class="hero-role reveal" style="--d:3">
+        I design the circuits, train the models, and build the interfaces that sit on top.
+      </p>
+      <p class="hero-lede reveal" style="--d:4">
+        A B.Sc. engineering student working across three layers of the same
+        problem — semiconductor layout, machine learning, and the web. I like
+        understanding a system down to its lowest level before I build on it.
+      </p>
+      <div class="hero-actions reveal" style="--d:5">
+        <a href="#projects" class="btn btn-primary">See my work</a>
+        <a href="#contact" class="btn btn-ghost">Start a conversation</a>
+      </div>
+    </div>
+
+    <div class="hero-diagram reveal" style="--d:3" aria-hidden="true">
+      <svg viewBox="0 0 340 340">
+        <rect x="110" y="110" width="120" height="120" rx="8" class="chip-body"></rect>
+        <g class="chip-pins">
+          <line x1="110" y1="140" x2="60" y2="140"></line>
+          <line x1="110" y1="170" x2="60" y2="170"></line>
+          <line x1="110" y1="200" x2="60" y2="200"></line>
+          <line x1="230" y1="140" x2="280" y2="140"></line>
+          <line x1="230" y1="170" x2="280" y2="170"></line>
+          <line x1="230" y1="200" x2="280" y2="200"></line>
+          <line x1="140" y1="110" x2="140" y2="60"></line>
+          <line x1="170" y1="110" x2="170" y2="60"></line>
+          <line x1="200" y1="110" x2="200" y2="60"></line>
+          <line x1="140" y1="230" x2="140" y2="280"></line>
+          <line x1="170" y1="230" x2="170" y2="280"></line>
+          <line x1="200" y1="230" x2="200" y2="280"></line>
+        </g>
+        <g class="chip-nodes">
+          <circle cx="60" cy="140" r="4"></circle>
+          <circle cx="60" cy="170" r="4" class="pulse" style="--pd:0s"></circle>
+          <circle cx="60" cy="200" r="4"></circle>
+          <circle cx="280" cy="140" r="4" class="pulse" style="--pd:0.6s"></circle>
+          <circle cx="280" cy="170" r="4"></circle>
+          <circle cx="280" cy="200" r="4"></circle>
+          <circle cx="140" cy="60" r="4"></circle>
+          <circle cx="170" cy="60" r="4" class="pulse" style="--pd:1.2s"></circle>
+          <circle cx="200" cy="60" r="4"></circle>
+          <circle cx="140" cy="280" r="4"></circle>
+          <circle cx="170" cy="280" r="4"></circle>
+          <circle cx="200" cy="280" r="4" class="pulse" style="--pd:1.8s"></circle>
+        </g>
+        <text x="170" y="176" text-anchor="middle" class="chip-label">MHH</text>
+      </svg>
     </div>
 
     <div class="hero-stats">
       <div class="stat">
         <span class="stat-num">81.5%</span>
-        <span class="stat-label">Pixel accuracy, SegFormer land-cover model</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">2022–26</span>
-        <span class="stat-label">B.Sc. Electronics &amp; Telecom Eng., CUET</span>
+        <span class="stat-label">Pixel accuracy on a 7-class land-cover segmentation model</span>
       </div>
       <div class="stat">
         <span class="stat-num">5.00</span>
         <span class="stat-label">GPA at both SSC and HSC</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Domains in active work — silicon, ML and web</span>
       </div>
     </div>
   </section>
@@ -87,28 +123,30 @@
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="section-head">
-      <span class="section-kicker">01</span>
+      <span class="section-index">01</span>
       <h2>About</h2>
     </div>
+
     <div class="about-grid">
-      <p class="about-lead">
-        A multidisciplinary engineer-in-training, equally comfortable with a
-        transistor-level schematic and a training loop.
-      </p>
-      <div class="about-body">
-        <p>
-          I'm a B.Sc. Engineering student at Chittagong University of Engineering
-          &amp; Technology with a background spanning semiconductor technology,
-          hardware development, software and machine learning. Most of what I
-          know, I've learned by finishing academic projects end to end — from
-          physical circuit layout to a deployed web interface.
+      <div class="about-copy">
+        <p class="about-lead">
+          A multidisciplinary engineer-in-training, equally comfortable with a
+          transistor-level schematic and a training loop.
         </p>
         <p>
-          That range shapes how I approach problems: I want to understand the
-          system underneath, whether that's how a standard cell is laid out in
-          silicon or how a transformer model segments a satellite image, before
-          I trust myself to build on top of it.
+          I'm a B.Sc. Engineering student at Chittagong University of
+          Engineering &amp; Technology with a background spanning semiconductor
+          technology, hardware development, software and machine learning. Most
+          of what I know, I've learned by finishing academic projects end to
+          end — from physical circuit layout to a deployed web interface.
         </p>
+        <p>
+          That range shapes how I approach problems: understand the system
+          underneath, whether that's how a standard cell is laid out in
+          silicon or how a transformer model segments a satellite image,
+          before trusting myself to build on top of it.
+        </p>
+
         <ul class="lang-list">
           <li><span>Bangla</span><small>Native</small></li>
           <li><span>English</span><small>Fluent</small></li>
@@ -116,50 +154,68 @@
           <li><span>Hindi</span><small>Conversational</small></li>
         </ul>
       </div>
+
+      <div class="venn" aria-hidden="true">
+        <svg viewBox="0 0 320 300">
+          <circle cx="130" cy="110" r="95" class="venn-a"></circle>
+          <circle cx="200" cy="110" r="95" class="venn-b"></circle>
+          <circle cx="165" cy="185" r="95" class="venn-c"></circle>
+        </svg>
+        <span class="venn-label venn-label--a">Silicon</span>
+        <span class="venn-label venn-label--b">Models</span>
+        <span class="venn-label venn-label--c">Web</span>
+      </div>
     </div>
   </section>
 
   <!-- SKILLS -->
   <section class="skills" id="skills">
     <div class="section-head">
-      <span class="section-kicker">02</span>
+      <span class="section-index">02</span>
       <h2>Skills</h2>
     </div>
 
     <div class="skill-groups">
       <article class="skill-card">
-        <h3>IC Layout &amp; Circuit Design</h3>
+        <div class="skill-icon" style="--c:var(--blue)">
+          <svg viewBox="0 0 40 40"><rect x="12" y="12" width="16" height="16" rx="2"></rect><line x1="12" y1="18" x2="4" y2="18"></line><line x1="12" y1="24" x2="4" y2="24"></line><line x1="28" y1="18" x2="36" y2="18"></line><line x1="28" y1="24" x2="36" y2="24"></line><line x1="18" y1="12" x2="18" y2="4"></line><line x1="24" y1="28" x2="24" y2="36"></line></svg>
+        </div>
+        <h3>IC layout &amp; circuit design</h3>
         <p>Custom and semi-custom layout work with an emphasis on verified, optimized silicon.</p>
         <ul class="tag-list">
           <li>Cadence Virtuoso</li>
           <li>DRC &amp; LVS</li>
-          <li>Spectre Simulation</li>
-          <li>CMOS Digital Logic</li>
-          <li>Standard Cell Design</li>
-          <li>Microchip Architecture</li>
+          <li>Spectre simulation</li>
+          <li>CMOS digital logic</li>
+          <li>Standard cell design</li>
         </ul>
       </article>
 
-      <article class="skill-card skill-card--accent">
-        <h3>Programming &amp; Data Science</h3>
+      <article class="skill-card skill-card--lead">
+        <div class="skill-icon" style="--c:var(--copper)">
+          <svg viewBox="0 0 40 40"><circle cx="20" cy="12" r="4"></circle><circle cx="10" cy="30" r="4"></circle><circle cx="30" cy="30" r="4"></circle><line x1="20" y1="16" x2="10" y2="26"></line><line x1="20" y1="16" x2="30" y2="26"></line><line x1="10" y1="30" x2="30" y2="30"></line></svg>
+        </div>
+        <h3>Programming &amp; data science</h3>
         <p>From data structures to deployed models, with a focus on computer vision.</p>
         <ul class="tag-list">
           <li>Python</li>
           <li>PyTorch</li>
           <li>Scikit-learn</li>
           <li>NumPy &amp; Pandas</li>
-          <li>Computer Vision</li>
-          <li>Data Structures</li>
+          <li>Computer vision</li>
         </ul>
       </article>
 
       <article class="skill-card">
-        <h3>Web Development</h3>
+        <div class="skill-icon" style="--c:var(--blue)">
+          <svg viewBox="0 0 40 40"><rect x="4" y="8" width="32" height="24" rx="2"></rect><line x1="4" y1="15" x2="36" y2="15"></line><circle cx="9" cy="11.5" r="1.2"></circle><circle cx="13" cy="11.5" r="1.2"></circle></svg>
+        </div>
+        <h3>Web development</h3>
         <p>Full front-end builds, plus the backend and CMS work needed to make them dynamic.</p>
         <ul class="tag-list">
           <li>HTML / CSS / JS</li>
           <li>Responsive UI</li>
-          <li>Backend &amp; CMS Integration</li>
+          <li>Backend &amp; CMS</li>
           <li>Git &amp; GitHub</li>
         </ul>
       </article>
@@ -169,18 +225,16 @@
   <!-- PROJECTS -->
   <section class="projects" id="projects">
     <div class="section-head">
-      <span class="section-kicker">03</span>
+      <span class="section-index">03</span>
       <h2>Projects</h2>
-      <a class="see-all" href="https://github.com/HamedHasann?tab=repositories" target="_blank" rel="noopener">
-        All repositories ↗
-      </a>
+      <a class="see-all" href="https://github.com/HamedHasann?tab=repositories" target="_blank" rel="noopener">All repositories ↗</a>
     </div>
 
-    <div class="project-list">
-
-      <article class="project-row project-row--featured">
-        <div class="project-tag">Machine Learning · Featured</div>
-        <h3>Satellite Image Processing for Ecosystem Health &amp; Land Cover Dynamics</h3>
+    <!-- Featured project 1 -->
+    <article class="showcase">
+      <div class="showcase-copy">
+        <span class="showcase-tag" style="--c:var(--copper)">Machine learning · Featured</span>
+        <h3>Satellite image processing for ecosystem health &amp; land cover dynamics</h3>
         <p>
           Fine-tuned a hierarchical transformer (SegFormer, MiT-B5) for 7-class
           land-cover semantic segmentation on the LoveDA benchmark, reaching
@@ -188,14 +242,36 @@
           UNetFormer baselines.
         </p>
         <div class="project-meta">
-          <span>SegFormer</span><span>PyTorch</span><span>Computer Vision</span>
+          <span>SegFormer</span><span>PyTorch</span><span>Computer vision</span>
         </div>
         <a href="https://github.com/HamedHasann/Machine_Learning" target="_blank" rel="noopener" class="project-link">View repository ↗</a>
-      </article>
+      </div>
+      <div class="showcase-art" aria-hidden="true">
+        <svg viewBox="0 0 300 220">
+          <rect x="10" y="10" width="280" height="200" rx="6" class="art-frame"></rect>
+          <g class="art-cells">
+            <rect x="24" y="24" width="60" height="45" class="c1"></rect>
+            <rect x="86" y="24" width="40" height="45" class="c2"></rect>
+            <rect x="128" y="24" width="70" height="45" class="c3"></rect>
+            <rect x="200" y="24" width="76" height="45" class="c1"></rect>
+            <rect x="24" y="71" width="45" height="55" class="c3"></rect>
+            <rect x="71" y="71" width="70" height="55" class="c2"></rect>
+            <rect x="143" y="71" width="55" height="55" class="c1"></rect>
+            <rect x="200" y="71" width="76" height="55" class="c2"></rect>
+            <rect x="24" y="128" width="80" height="60" class="c2"></rect>
+            <rect x="106" y="128" width="60" height="60" class="c1"></rect>
+            <rect x="168" y="128" width="45" height="60" class="c3"></rect>
+            <rect x="215" y="128" width="61" height="60" class="c1"></rect>
+          </g>
+        </svg>
+      </div>
+    </article>
 
-      <article class="project-row">
-        <div class="project-tag">IoT &amp; Embedded Systems</div>
-        <h3>IoT-Based Web-Controlled Vending Machine</h3>
+    <!-- Featured project 2 -->
+    <article class="showcase showcase--reverse">
+      <div class="showcase-copy">
+        <span class="showcase-tag" style="--c:var(--blue)">IoT &amp; embedded systems</span>
+        <h3>IoT-based web-controlled vending machine</h3>
         <p>
           Team-built vending machine using an ESP32 to drive a stepper motor
           through a motor driver, paired with a website that handled product
@@ -206,150 +282,161 @@
           <span>ESP32</span><span>PHP</span><span>Database</span>
         </div>
         <a href="https://github.com/HamedHasann/Embedded_Systems_IoT" target="_blank" rel="noopener" class="project-link">View repository ↗</a>
-      </article>
+      </div>
+      <div class="showcase-art" aria-hidden="true">
+        <svg viewBox="0 0 300 220">
+          <rect x="10" y="10" width="280" height="200" rx="6" class="art-frame"></rect>
+          <rect x="40" y="40" width="90" height="140" rx="4" class="art-outline"></rect>
+          <line x1="55" y1="60" x2="115" y2="60" class="art-outline"></line>
+          <line x1="55" y1="80" x2="115" y2="80" class="art-outline"></line>
+          <line x1="55" y1="100" x2="115" y2="100" class="art-outline"></line>
+          <circle cx="150" cy="70" r="18" class="art-outline"></circle>
+          <line x1="150" y1="88" x2="150" y2="130" class="art-outline"></line>
+          <line x1="150" y1="130" x2="220" y2="130" class="art-outline"></line>
+          <rect x="210" y="115" width="40" height="30" rx="3" class="c1"></rect>
+          <line x1="130" y1="70" x2="132" y2="70" class="art-outline"></line>
+          <circle cx="150" cy="70" r="4" class="c3"></circle>
+        </svg>
+      </div>
+    </article>
 
-      <article class="project-row">
-        <div class="project-tag">Web Development</div>
-        <h3>CUET University Website</h3>
+    <!-- Secondary projects grid -->
+    <div class="project-grid">
+      <article class="project-card">
+        <span class="project-tag" style="--c:var(--blue)">Web development</span>
+        <h3>CUET university website</h3>
         <p>
           Built a full university website from the ground up — UI/UX
-          wireframing, a responsive front-end, and backend/CMS integration
-          for dynamic content like announcements, an event calendar and a
-          student portal.
+          wireframing, a responsive front-end, and backend/CMS integration for
+          dynamic content like announcements and a student portal.
         </p>
-        <div class="project-meta">
-          <span>UI/UX</span><span>Responsive</span><span>CMS</span>
-        </div>
+        <div class="project-meta"><span>UI/UX</span><span>Responsive</span><span>CMS</span></div>
         <a href="https://github.com/HamedHasann/Web_Development" target="_blank" rel="noopener" class="project-link">View repository ↗</a>
       </article>
 
-      <article class="project-row">
-        <div class="project-tag">Hardware · Circuit Design</div>
-        <h3>Multi-Voltage Regulated Power Supply</h3>
+      <article class="project-card">
+        <span class="project-tag" style="--c:var(--copper)">Hardware · circuit design</span>
+        <h3>Multi-voltage regulated power supply</h3>
         <p>
-          Designed a center-tapped transformer-based supply converting 220V AC
-          mains into regulated 9V, 6V and 5V DC outputs, using a full-wave
-          rectifier, capacitor filtering and 7809/7806/7805 linear regulators.
+          Center-tapped transformer-based supply converting 220V AC mains into
+          regulated 9V, 6V and 5V DC outputs, using a full-wave rectifier and
+          linear regulators.
         </p>
-        <div class="project-meta">
-          <span>Power Electronics</span><span>Circuit Design</span>
-        </div>
+        <div class="project-meta"><span>Power electronics</span><span>Circuit design</span></div>
         <a href="https://github.com/HamedHasann/EDGE_Project_Md_Hamed_Hasan_2108016" target="_blank" rel="noopener" class="project-link">View repository ↗</a>
       </article>
 
-      <article class="project-row">
-        <div class="project-tag">VLSI</div>
-        <h3>VLSI Design Fundamentals</h3>
+      <article class="project-card">
+        <span class="project-tag" style="--c:var(--blue)">VLSI</span>
+        <h3>VLSI design fundamentals</h3>
         <p>
           Digital logic and circuit design work exploring standard cell layout,
           verification and the fundamentals of chip-level engineering.
         </p>
-        <div class="project-meta">
-          <span>CMOS</span><span>Digital Logic</span>
-        </div>
+        <div class="project-meta"><span>CMOS</span><span>Digital logic</span></div>
         <a href="https://github.com/HamedHasann/VLSI_Design" target="_blank" rel="noopener" class="project-link">View repository ↗</a>
       </article>
-
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section class="experience" id="experience">
+  <!-- JOURNEY (experience + education combined timeline) -->
+  <section class="journey" id="journey">
     <div class="section-head">
-      <span class="section-kicker">04</span>
-      <h2>Experience</h2>
+      <span class="section-index">04</span>
+      <h2>Journey</h2>
     </div>
+
     <div class="timeline">
       <div class="timeline-item">
+        <div class="timeline-dot"></div>
         <div class="timeline-date">May 2026</div>
         <div class="timeline-body">
-          <h3>Web Development Intern — Industrial Attachment Program</h3>
-          <p class="timeline-org">GOVALY PTE LTD</p>
+          <span class="timeline-kind">Experience</span>
+          <h3>Web development intern — Industrial Attachment Program</h3>
+          <p class="timeline-org">Govaly Pte Ltd</p>
           <p>
             Completed a hands-on industrial attachment focused on web
-            development, gaining direct exposure to how industry
-            professionals build, optimize and scale web applications in a
-            real-world business environment.
+            development, gaining direct exposure to how industry professionals
+            build, optimize and scale web applications in a real-world
+            business environment.
           </p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- EDUCATION -->
-  <section class="education" id="education">
-    <div class="section-head">
-      <span class="section-kicker">05</span>
-      <h2>Education</h2>
-    </div>
-    <div class="timeline">
       <div class="timeline-item">
+        <div class="timeline-dot"></div>
         <div class="timeline-date">2022 – 2026</div>
         <div class="timeline-body">
+          <span class="timeline-kind">Education</span>
           <h3>B.Sc. in Electronics &amp; Telecommunication Engineering</h3>
           <p class="timeline-org">Chittagong University of Engineering &amp; Technology (CUET)</p>
         </div>
       </div>
+
       <div class="timeline-item">
+        <div class="timeline-dot"></div>
         <div class="timeline-date">2020 – 2021</div>
         <div class="timeline-body">
+          <span class="timeline-kind">Education</span>
           <h3>Higher Secondary Certificate — GPA 5.00 / 5.00</h3>
           <p class="timeline-org">Chittagong Cantonment Public College</p>
         </div>
       </div>
+
       <div class="timeline-item">
+        <div class="timeline-dot"></div>
         <div class="timeline-date">2013 – 2019</div>
         <div class="timeline-body">
+          <span class="timeline-kind">Education</span>
           <h3>Secondary School Certificate — GPA 5.00 / 5.00</h3>
           <p class="timeline-org">Chittagong Collegiate School</p>
         </div>
       </div>
     </div>
 
-    <div class="cert-block">
-      <h3 class="cert-heading">Certifications</h3>
-      <ul class="cert-list">
-        <li><span>Machine Learning with Python</span><small>IBM · Coursera, Aug 2026</small></li>
-        <li><span>Python Data Structures</span><small>University of Michigan · Coursera, Jul 2026</small></li>
-        <li><span>Programming for Everybody</span><small>University of Michigan · Coursera, Jul 2026</small></li>
-      </ul>
-    </div>
-
-    <div class="cert-block">
-      <h3 class="cert-heading">Leadership &amp; Extracurricular</h3>
-      <ul class="cert-list">
-        <li><span>3-Minute Thesis (3MT) Competition, SciBlitz 2.0</span><small>Participant · IEEE CUET Student Branch</small></li>
-        <li><span>District-Level Drawing Competition</span><small>4th Place</small></li>
-        <li><span>Physics &amp; Mathematics Olympiad</span><small>Participant</small></li>
-      </ul>
+    <div class="extra-grid">
+      <div class="extra-block">
+        <h3 class="extra-heading">Certifications</h3>
+        <ul class="extra-list">
+          <li><span>Machine Learning with Python</span><small>IBM, Coursera — Aug 2026</small></li>
+          <li><span>Python Data Structures</span><small>University of Michigan, Coursera — Jul 2026</small></li>
+          <li><span>Programming for Everybody</span><small>University of Michigan, Coursera — Jul 2026</small></li>
+        </ul>
+      </div>
+      <div class="extra-block">
+        <h3 class="extra-heading">Leadership &amp; extracurricular</h3>
+        <ul class="extra-list">
+          <li><span>3-Minute Thesis (3MT) Competition, SciBlitz 2.0</span><small>Participant, IEEE CUET Student Branch</small></li>
+          <li><span>District-level drawing competition</span><small>4th place</small></li>
+          <li><span>Physics &amp; Mathematics Olympiad</span><small>Participant</small></li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
-    <div class="contact-inner">
-      <h2>Let's talk</h2>
-      <p>
-        Open to internships, research collaborations, and interesting problems
-        across ML, hardware and the web.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:hamed2002273@gmail.com" class="btn btn-primary">hamed2002273@gmail.com</a>
-        <a href="tel:+8801849524741" class="btn btn-ghost">+880 1849-524741</a>
-      </div>
-      <div class="contact-social">
-        <a href="https://github.com/HamedHasann" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/hamed-hasan-15072927a/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a>
-      </div>
+    <span class="crop crop--tl" aria-hidden="true"></span>
+    <span class="crop crop--br" aria-hidden="true"></span>
+    <p class="contact-kicker">05 · Contact</p>
+    <h2>Let's build<br>something together.</h2>
+    <p class="contact-lede">
+      Open to internships, research collaborations, and interesting problems
+      across ML, hardware and the web.
+    </p>
+    <a href="mailto:hamed2002273@gmail.com" class="contact-email">hamed2002273@gmail.com</a>
+    <div class="contact-row">
+      <a href="tel:+8801849524741">+880 1849-524741</a>
+      <a href="https://github.com/HamedHasann" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/hamed-hasan-15072927a/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </section>
 
 </main>
 
 <footer class="site-footer">
-  <p>&copy; <span id="year"></span> Md. Hamed Hasan. Built with HTML, CSS and JavaScript.</p>
-  <a href="#top" class="back-top">Back to top ↑</a>
+  <p>&copy; <span id="year"></span> Md. Hamed Hasan</p>
+  <a href="#hero" class="back-top">Back to top ↑</a>
 </footer>
 
 <script src="script.js"></script>
