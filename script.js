@@ -9,15 +9,34 @@ document.addEventListener("DOMContentLoaded", () => {
   setupContactForm();
 });
 
-// Highlight the current page in both the sidebar and mobile nav
+// Highlight the nav link matching whichever section is in view (scrollspy),
+// since this is now a single-page site with in-page anchors.
 function markActiveNavLink() {
-  const current = (location.pathname.split("/").pop() || "index.html");
-  document.querySelectorAll(".nav-links a, .mobile-nav a").forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href === current || (current === "" && href === "index.html")) {
-      link.classList.add("active");
-    }
-  });
+  const navLinks = document.querySelectorAll(".nav-links a, .mobile-nav a");
+  const sections = Array.from(navLinks)
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  if (!sections.length) return;
+
+  const setActive = (id) => {
+    navLinks.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+    });
+  };
+
+  setActive(sections[0].id);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
 }
 
 // Toggle the mobile menu open/closed
