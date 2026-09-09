@@ -26,35 +26,21 @@
 </head>
 <!--
   PROFILE PHOTO: served from assets/images/profile.jpg in this repo.
-  PORTFOLIO IMAGES: served from assets/images/portfolio/<slug>.jpg
-  (satellite-segmentation, iot-vending-machine, cuet-website, vlsi-layout,
-  signal-noise-reduction, power-supply-circuit). Any of these missing
-  falls back to a generated icon tile, so the site never breaks.
+  If that file is ever renamed or removed, the "HH" initials mark is
+  shown instead, so the site never breaks.
 -->
 <body>
 <div class="grid-texture" aria-hidden="true"></div>
 
-<header class="site-header">
-  <a href="#home" class="brand">
-    <span class="brand-mark">
+<!-- Mobile top bar -->
+<header class="topbar">
+  <a href="#home" class="topbar-brand">
+    <span class="nav-brand-mark">
       <img class="avatar-img" src="assets/images/profile.jpg" alt="" onerror="this.hidden=true">
       HH
-    </span>
-    <span class="brand-text">Hamed Hasan</span>
+    </span> Hamed Hasan
   </a>
-
-  <nav class="top-nav">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#interests">Interests</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="header-actions">
-    <a href="https://drive.google.com/uc?export=download&id=1LVEPEET2eXB-rp0KdB0GWvGdbpQLJExz" class="cv-pill" target="_blank" rel="noopener">CV</a>
+  <div class="topbar-actions">
     <button class="theme-toggle" aria-label="Toggle dark mode">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -64,7 +50,6 @@
     </button>
   </div>
 </header>
-
 <nav class="mobile-nav">
   <a href="#home">Home</a>
   <a href="#about">About</a>
@@ -80,7 +65,43 @@
   </div>
 </nav>
 
-<main class="main">
+<div class="shell">
+  <!-- Sidebar nav -->
+  <aside class="nav">
+    <a href="#home" class="nav-brand">
+      <span class="nav-brand-mark">
+        <img class="avatar-img" src="assets/images/profile.jpg" alt="" onerror="this.hidden=true">
+        HH
+      </span>
+      <span class="nav-brand-text">Hamed Hasan<span>ETE · VLSI · AI/ML</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#interests">Interests</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-foot">
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <span class="moon">Dark mode</span>
+        <span class="sun">Light mode</span>
+      </button>
+      <div class="nav-social">
+        <a href="https://github.com/HamedHasann" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/hamed-hasan-15072927a/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.facebook.com/naymar.ccs" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <div class="nav-status">Open to opportunities</div>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
 
     <!-- ===================== HOME ===================== -->
     <section id="home" class="hero">
@@ -376,145 +397,72 @@
       </div>
 
       <section class="section wide">
-        <div class="project-grid">
-
-          <article class="project-card">
-            <div class="project-media">
-              <img src="assets/images/portfolio/satellite-segmentation.jpg" alt="Satellite image segmentation project" loading="lazy"
-                   onerror="this.hidden=true; this.nextElementSibling.classList.add('show')">
-              <div class="project-media-fallback cat-ml">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-                  <circle cx="12" cy="12" r="2.2"/><circle cx="5" cy="5" r="1.8"/><circle cx="19" cy="5" r="1.8"/>
-                  <circle cx="5" cy="19" r="1.8"/><circle cx="19" cy="19" r="1.8"/>
-                  <path d="M6.3 6.3 10.3 10.3M17.7 6.3 13.7 10.3M6.3 17.7 10.3 13.7M17.7 17.7 13.7 13.7"/>
-                </svg>
+        <div class="project-list">
+          <div class="project">
+            <div>
+              <div class="project-top">
+                <h3>Satellite image segmentation for land-cover mapping</h3>
+                <span class="project-lang">PyTorch · Computer vision</span>
               </div>
-              <span class="project-tag">Machine Learning</span>
-            </div>
-            <div class="project-body">
-              <h3>Satellite image segmentation for land-cover mapping</h3>
-              <span class="project-lang">PyTorch · Computer vision</span>
               <p>Fine-tuned a hierarchical transformer (SegFormer, MiT-B5) for 7-class land-cover semantic segmentation on the LoveDA benchmark — 81.54% pixel accuracy and 55.31% official mIoU, outperforming PSPNet and UNetFormer baselines.</p>
             </div>
-            <a class="project-link" href="https://github.com/HamedHasann/Machine_Learning" target="_blank" rel="noopener">
-              View on GitHub
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
-            </a>
-          </article>
+            <a class="project-link" href="https://github.com/HamedHasann/Machine_Learning" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
 
-          <article class="project-card">
-            <div class="project-media">
-              <img src="assets/images/portfolio/iot-vending-machine.jpg" alt="IoT-based vending machine project" loading="lazy"
-                   onerror="this.hidden=true; this.nextElementSibling.classList.add('show')">
-              <div class="project-media-fallback cat-iot">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-                  <rect x="7" y="7" width="10" height="10" rx="1"/>
-                  <path d="M9 3v4M12 3v4M15 3v4M9 17v4M12 17v4M15 17v4M3 9h4M3 12h4M3 15h4M17 9h4M17 12h4M17 15h4"/>
-                </svg>
+          <div class="project">
+            <div>
+              <div class="project-top">
+                <h3>IoT-based web-controlled vending machine</h3>
+                <span class="project-lang">ESP32 · Embedded · Web</span>
               </div>
-              <span class="project-tag">Embedded / IoT</span>
-            </div>
-            <div class="project-body">
-              <h3>IoT-based web-controlled vending machine</h3>
-              <span class="project-lang">ESP32 · Embedded · Web</span>
               <p>Team project built around an ESP32 microcontroller driving a stepper motor through a motor driver, paired with a website handling product selection, mobile banking payment, and a database for transactions and inventory.</p>
             </div>
-            <a class="project-link" href="https://github.com/HamedHasann/Embedded_Systems_IoT" target="_blank" rel="noopener">
-              View on GitHub
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
-            </a>
-          </article>
+            <a class="project-link" href="https://github.com/HamedHasann/Embedded_Systems_IoT" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
 
-          <article class="project-card">
-            <div class="project-media">
-              <img src="assets/images/portfolio/cuet-website.jpg" alt="CUET university website project" loading="lazy"
-                   onerror="this.hidden=true; this.nextElementSibling.classList.add('show')">
-              <div class="project-media-fallback cat-web">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="5" width="18" height="14" rx="1.5"/>
-                  <path d="M3 9h18"/>
-                  <circle cx="6" cy="7" r="0.6" fill="currentColor" stroke="none"/>
-                  <circle cx="8.6" cy="7" r="0.6" fill="currentColor" stroke="none"/>
-                </svg>
+          <div class="project">
+            <div>
+              <div class="project-top">
+                <h3>CUET university website</h3>
+                <span class="project-lang">HTML/CSS/JS · Backend/CMS</span>
               </div>
-              <span class="project-tag">Web Development</span>
-            </div>
-            <div class="project-body">
-              <h3>CUET university website</h3>
-              <span class="project-lang">HTML/CSS/JS · Backend/CMS</span>
               <p>Built a full university website from the ground up — UI/UX wireframing, a responsive front end, and backend/CMS integration for dynamic content like announcements, an event calendar, and a student portal.</p>
             </div>
-            <a class="project-link" href="https://github.com/HamedHasann/Web_Development" target="_blank" rel="noopener">
-              View on GitHub
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
-            </a>
-          </article>
+            <a class="project-link" href="https://github.com/HamedHasann/Web_Development" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
 
-          <article class="project-card">
-            <div class="project-media">
-              <img src="assets/images/portfolio/vlsi-layout.jpg" alt="IC layout and VLSI design project" loading="lazy"
-                   onerror="this.hidden=true; this.nextElementSibling.classList.add('show')">
-              <div class="project-media-fallback cat-vlsi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                  <rect x="4" y="4" width="16" height="16" rx="1.5"/>
-                  <rect x="9" y="9" width="6" height="6" rx="1"/>
-                  <path d="M12 4V2M12 22v-2M4 12H2M22 12h-2"/>
-                </svg>
+          <div class="project">
+            <div>
+              <div class="project-top">
+                <h3>IC layout &amp; VLSI design work</h3>
+                <span class="project-lang">Cadence Virtuoso · DRC/LVS</span>
               </div>
-              <span class="project-tag">IC Layout / VLSI</span>
-            </div>
-            <div class="project-body">
-              <h3>IC layout &amp; VLSI design work</h3>
-              <span class="project-lang">Cadence Virtuoso · DRC/LVS</span>
               <p>Custom and semi-custom IC layout, schematic capture and simulation in Spectre, and physical verification — applying CMOS digital logic and standard cell design principles.</p>
             </div>
-            <a class="project-link" href="https://github.com/HamedHasann/VLSI_Design" target="_blank" rel="noopener">
-              View on GitHub
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
-            </a>
-          </article>
+            <a class="project-link" href="https://github.com/HamedHasann/VLSI_Design" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
 
-          <article class="project-card">
-            <div class="project-media">
-              <img src="assets/images/portfolio/signal-noise-reduction.jpg" alt="Signal noise reduction project" loading="lazy"
-                   onerror="this.hidden=true; this.nextElementSibling.classList.add('show')">
-              <div class="project-media-fallback cat-signal">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2 12h3l2-7 4 14 3-10 2 5h6"/>
-                </svg>
+          <div class="project">
+            <div>
+              <div class="project-top">
+                <h3>Signal noise reduction (EDGE project)</h3>
+                <span class="project-lang">MATLAB · Signal processing</span>
               </div>
-              <span class="project-tag">Signal Processing</span>
-            </div>
-            <div class="project-body">
-              <h3>Signal noise reduction (EDGE project)</h3>
-              <span class="project-lang">MATLAB · Signal processing</span>
               <p>Signal-processing work on noise reduction, implemented in MATLAB as part of the EDGE project coursework.</p>
             </div>
-            <a class="project-link" href="https://github.com/HamedHasann/EDGE_Project_Md_Hamed_Hasan_2108016" target="_blank" rel="noopener">
-              View on GitHub
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
-            </a>
-          </article>
+            <a class="project-link" href="https://github.com/HamedHasann/EDGE_Project_Md_Hamed_Hasan_2108016" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
 
-          <article class="project-card">
-            <div class="project-media">
-              <img src="assets/images/portfolio/power-supply-circuit.jpg" alt="Multi-voltage power supply circuit project" loading="lazy"
-                   onerror="this.hidden=true; this.nextElementSibling.classList.add('show')">
-              <div class="project-media-fallback cat-power">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/>
-                </svg>
+          <div class="project">
+            <div>
+              <div class="project-top">
+                <h3>Multi-voltage regulated power supply circuit</h3>
+                <span class="project-lang">Analog electronics</span>
               </div>
-              <span class="project-tag">Analog Electronics</span>
-            </div>
-            <div class="project-body">
-              <h3>Multi-voltage regulated power supply circuit</h3>
-              <span class="project-lang">Analog electronics</span>
               <p>Designed and built a center-tapped transformer-based power supply converting 220V AC mains into regulated 9V, 6V, and 5V DC outputs, using a full-wave rectifier (1N4007 diodes), capacitor filtering, and 7809/7806/7805 linear regulators.</p>
             </div>
             <p class="project-note">Not yet published to GitHub — add a repo link here once it is.</p>
-          </article>
-
+          </div>
         </div>
       </section>
     </section>
@@ -631,22 +579,15 @@
       <div class="notice">
         This form submits to Formspree and delivers messages straight to hamed2002273@gmail.com. If you ever need to change where messages go, update the form's <code>action</code> URL in <code>index.html</code> and the Formspree dashboard.
       </div>
-
-      <div class="contact-social">
-        <div class="footer-social">
-          <a href="https://github.com/HamedHasann" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/hamed-hasan-15072927a/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://www.facebook.com/naymar.ccs" target="_blank" rel="noopener">Facebook</a>
-        </div>
-        <span class="nav-status">Open to opportunities</span>
-      </div>
     </section>
 
     <footer class="site-footer">
       <span>© 2026 Hamed Hasan. Built with HTML, CSS &amp; JS.</span>
+      <a href="https://github.com/HamedHasann" target="_blank" rel="noopener">github.com/HamedHasann</a>
     </footer>
-</main>
+  </main>
+</div>
 
-<script src="script.js?v=3"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
