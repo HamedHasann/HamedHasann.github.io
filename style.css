@@ -53,8 +53,8 @@ html[data-theme="dark"] .btn-primary:hover { background: var(--teal-deep); }
 html[data-theme="dark"] .grid-texture { opacity: 0.35; }
 html[data-theme="dark"] .hero-trace path { stroke: var(--ink-soft); }
 
-body, .nav, .topbar, .mobile-nav, .btn, .form-field input, .form-field textarea,
-.nav-links a, .nav-social a {
+body, .topbar, .mobile-nav, .btn, .form-field input, .form-field textarea,
+.nav-links a, .social-icon {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
@@ -101,94 +101,79 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* =========================================================
-   Shell layout: sidebar nav + main content
+   Shell layout: top nav + main content
    ========================================================= */
 .shell {
   position: relative;
   z-index: 1;
-  display: flex;
-  min-height: 100vh;
 }
 
-/* ---- Sidebar nav ---- */
-.nav {
-  width: var(--nav-w);
-  flex-shrink: 0;
-  border-right: 1px solid var(--line);
-  background: var(--surface);
+/* ---- Top nav ---- */
+#home, #about, #skills, #interests, #portfolio, #blog, #contact {
+  scroll-margin-top: 84px;
+}
+.section-page {
+  border-top: 1px solid var(--line);
+  margin-top: 56px;
+  padding-top: 48px;
+}
+
+.topbar {
   display: flex;
-  flex-direction: column;
   position: sticky;
   top: 0;
-  height: 100vh;
-  padding: 32px 28px;
-}
-
-.nav-brand {
-  display: flex;
+  z-index: 20;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 56px;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 40px;
+  justify-content: space-between;
+  gap: 24px;
 }
-.nav-brand-mark {
-  width: 30px;
-  height: 30px;
-  border: 1.5px solid var(--ink);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  flex-shrink: 0;
-  overflow: hidden;
-  position: relative;
-}
-/* Profile photo: drop the file at assets/profile.jpg (see comment in
-   index.html). If it's missing, the "HH" initials underneath stay visible. */
-.avatar-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.avatar-img[hidden] { display: none; }
-.nav-brand-text {
+.topbar-brand {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 1.25;
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  flex-shrink: 0;
 }
-.nav-brand-text span {
+.topbar-brand span {
   display: block;
   font-family: var(--font-mono);
   font-weight: 400;
-  font-size: 12px;
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
   color: var(--ink-faint);
+  margin-top: 2px;
 }
 
-.nav-links {
+.nav-links.topbar-links {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.nav-links a {
-  padding: 9px 10px;
+.nav-links.topbar-links a {
+  padding: 8px 12px;
   border-radius: var(--radius);
-  font-size: 14.5px;
+  font-size: 13.5px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
   color: var(--ink-soft);
-  border-left: 2px solid transparent;
+  border-left: none;
+  border-bottom: 1px solid transparent;
   transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
 }
-.nav-links a:hover {
+.nav-links.topbar-links a:hover {
   color: var(--ink);
   background: var(--bg);
 }
-.nav-links a.active {
+.nav-links.topbar-links a.active {
   color: var(--teal-deep);
-  border-left-color: var(--teal);
+  border-bottom-color: var(--teal);
   background: var(--teal-soft);
   font-weight: 500;
 }
@@ -196,103 +181,58 @@ button { font-family: inherit; cursor: pointer; }
 .theme-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
   background: var(--bg);
   border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  padding: 6px 12px 6px 6px;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
   color: var(--ink-soft);
+  flex-shrink: 0;
 }
-.theme-toggle svg { width: 15px; height: 15px; flex-shrink: 0; }
+.theme-toggle svg { width: 16px; height: 16px; flex-shrink: 0; }
 .theme-toggle .sun { display: none; }
 html[data-theme="dark"] .theme-toggle .sun { display: block; }
 html[data-theme="dark"] .theme-toggle .moon { display: none; }
 .theme-toggle:hover { border-color: var(--teal); color: var(--teal-deep); }
-.topbar-actions { display: flex; align-items: center; gap: 10px; }
+.topbar-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
-.nav-foot {
-  margin-top: auto;
-  padding-top: 24px;
-}
-.nav-foot .theme-toggle { margin-bottom: 16px; width: 100%; justify-content: center; }
-.nav-social {
+/* ---- Social icons (icon-only circles) ---- */
+.social-row {
   display: flex;
-  gap: 14px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
 }
-.nav-social a {
-  color: var(--ink-faint);
-  font-size: 13px;
-  border-bottom: 1px solid transparent;
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
-.nav-social a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
+.social-icon svg { width: 17px; height: 17px; }
+.social-icon:hover { color: var(--teal-deep); border-color: var(--teal); background: var(--teal-soft); }
 .mobile-nav-social {
   display: flex;
-  gap: 18px;
-  padding: 14px 4px 4px;
-  margin-top: 4px;
+  justify-content: center;
+  gap: 14px;
+  padding: 16px 4px 4px;
+  margin-top: 8px;
   border-top: 1px solid var(--line);
-}
-.mobile-nav-social a {
-  border-bottom: none;
-  padding: 0;
-  font-size: 13.5px;
-  color: var(--ink-faint);
-}
-.mobile-nav-social a:hover { color: var(--teal-deep); }
-.nav-status {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  color: var(--ink-faint);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.nav-status::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--teal);
 }
 
-/* ---- Mobile top bar ---- */
-#home, #about, #skills, #interests, #portfolio, #blog, #contact {
-  scroll-margin-top: 24px;
-}
-@media (max-width: 900px) {
-  #home, #about, #skills, #interests, #portfolio, #blog, #contact {
-    scroll-margin-top: 70px;
-  }
-}
-.section-page {
-  border-top: 1px solid var(--line);
-  margin-top: 56px;
-  padding-top: 48px;
-}
-.topbar {
-  display: none;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: var(--surface);
-  border-bottom: 1px solid var(--line);
-  padding: 14px 20px;
-  align-items: center;
-  justify-content: space-between;
-}
-.topbar-brand { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 600; font-size: 15px; }
-.topbar-brand .nav-brand-mark { width: 26px; height: 26px; font-size: 11px; }
 .menu-btn {
+  display: none;
   background: none;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   width: 38px;
   height: 34px;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -321,9 +261,10 @@ html[data-theme="dark"] .theme-toggle .moon { display: none; }
    Main content
    ========================================================= */
 .main {
-  flex: 1;
   min-width: 0;
-  padding: 72px 56px 100px;
+  max-width: var(--wide-max);
+  margin: 0 auto;
+  padding: 56px 56px 100px;
 }
 .page-head {
   max-width: var(--content-max);
@@ -700,8 +641,9 @@ html[data-theme="dark"] .form-msg.error { color: #E58C7D; }
    Responsive
    ========================================================= */
 @media (max-width: 880px) {
-  .nav { display: none; }
-  .topbar { display: flex; }
+  .topbar-links { display: none; }
+  .menu-btn { display: flex; }
+  .topbar { padding: 14px 20px; }
   .main { padding: 40px 22px 70px; }
   .contact-layout { grid-template-columns: 1fr; }
   .stat-row { grid-template-columns: 1fr; max-width: 320px; }
