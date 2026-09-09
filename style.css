@@ -180,6 +180,19 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* ---- Mobile top bar ---- */
+#home, #about, #skills, #interests, #portfolio, #blog, #contact {
+  scroll-margin-top: 24px;
+}
+@media (max-width: 900px) {
+  #home, #about, #skills, #interests, #portfolio, #blog, #contact {
+    scroll-margin-top: 70px;
+  }
+}
+.section-page {
+  border-top: 1px solid var(--line);
+  margin-top: 56px;
+  padding-top: 48px;
+}
 .topbar {
   display: none;
   position: sticky;
