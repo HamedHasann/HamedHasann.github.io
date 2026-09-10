@@ -119,11 +119,13 @@ button { font-family: inherit; cursor: pointer; }
   padding-top: 48px;
 }
 
-.topbar {
-  display: flex;
+.site-header-wrap {
   position: sticky;
   top: 0;
   z-index: 20;
+}
+.topbar {
+  display: flex;
   background: var(--surface);
   border-bottom: 1px solid var(--line);
   padding: 18px 56px;
